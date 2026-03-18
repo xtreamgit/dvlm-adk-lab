@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hide Next.js development loading indicator */
+[data-next-mark-loading] {
+  display: none !important;
+}
+
+/* Hide Next.js development indicators */
+div[style*="position: fixed"][style*="bottom: 16px"][style*="left: 16px"] {
+  display: none !important;
+}

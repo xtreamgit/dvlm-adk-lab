@@ -1,0 +1,1310 @@
+{
+  "export_timestamp": "2026-01-13T17:24:56.283545",
+  "source_database": "SQLite",
+  "database_path": "./data/users.db",
+  "tables": {
+    "agents": {
+      "columns": [
+        "id",
+        "name",
+        "display_name",
+        "description",
+        "config_path",
+        "is_active",
+        "created_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "name": "default-agent",
+          "display_name": "Default Agent",
+          "description": "Default general-purpose RAG agent",
+          "config_path": "develom",
+          "is_active": 1,
+          "created_at": "2025-12-31T23:40:19.539887+00:00"
+        },
+        {
+          "id": 2,
+          "name": "agent1",
+          "display_name": "Agent 1",
+          "description": "Specialized agent 1",
+          "config_path": "agent1",
+          "is_active": 1,
+          "created_at": "2025-12-31T23:40:19.545101+00:00"
+        },
+        {
+          "id": 3,
+          "name": "agent2",
+          "display_name": "Agent 2",
+          "description": "Specialized agent 2",
+          "config_path": "agent2",
+          "is_active": 1,
+          "created_at": "2025-12-31T23:40:19.548455+00:00"
+        },
+        {
+          "id": 4,
+          "name": "agent3",
+          "display_name": "Agent 3",
+          "description": "Specialized agent 3",
+          "config_path": "agent3",
+          "is_active": 1,
+          "created_at": "2025-12-31T23:40:19.551838+00:00"
+        },
+        {
+          "id": 5,
+          "name": "tt-agent",
+          "display_name": "TT Agent",
+          "description": "TT specialized agent",
+          "config_path": "tt",
+          "is_active": 1,
+          "created_at": "2025-12-31T23:40:19.555000+00:00"
+        },
+        {
+          "id": 6,
+          "name": "usfs-agent",
+          "display_name": "USFS Agent",
+          "description": "USFS specialized agent",
+          "config_path": "usfs",
+          "is_active": 1,
+          "created_at": "2025-12-31T23:40:19.558992+00:00"
+        }
+      ]
+    },
+    "corpora": {
+      "columns": [
+        "id",
+        "name",
+        "display_name",
+        "description",
+        "gcs_bucket",
+        "vertex_corpus_id",
+        "is_active",
+        "created_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "name": "develom-general",
+          "display_name": "Develom General Knowledge",
+          "description": "General knowledge base for Develom organization",
+          "gcs_bucket": "develom-documents",
+          "vertex_corpus_id": null,
+          "is_active": 0,
+          "created_at": "2025-12-31T23:40:41.156070+00:00"
+        },
+        {
+          "id": 2,
+          "name": "ai-books",
+          "display_name": "AI Books Collection",
+          "description": "Collection of AI and technology books",
+          "gcs_bucket": "ipad-book-collection",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/2305843009213693952",
+          "is_active": 1,
+          "created_at": "2025-12-31T23:40:41.160041+00:00"
+        },
+        {
+          "id": 3,
+          "name": "test-corpus",
+          "display_name": "Test Corpus",
+          "description": "Test corpus for development",
+          "gcs_bucket": "test-bucket",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/6917529027641081856",
+          "is_active": 1,
+          "created_at": "2026-01-02 21:47:26"
+        },
+        {
+          "id": 4,
+          "name": "design",
+          "display_name": "design",
+          "description": "Synced from Vertex AI on 2026-01-07T21:43:00.123602",
+          "gcs_bucket": "gs://adk-rag-ma-design",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/3379951520341557248",
+          "is_active": 1,
+          "created_at": "2026-01-08T05:43:00.123618+00:00"
+        },
+        {
+          "id": 5,
+          "name": "management",
+          "display_name": "management",
+          "description": "Synced from Vertex AI on 2026-01-07T21:43:00.126967",
+          "gcs_bucket": "gs://adk-rag-ma-management",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/6838716034162098176",
+          "is_active": 1,
+          "created_at": "2026-01-08T05:43:00.126980+00:00"
+        },
+        {
+          "id": 6,
+          "name": "usfs-corpora",
+          "display_name": "usfs-corpora",
+          "description": "Synced from Vertex AI on 2026-01-07T21:43:00.130858",
+          "gcs_bucket": "gs://adk-rag-ma-usfs-corpora",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/137359788634800128",
+          "is_active": 0,
+          "created_at": "2026-01-08T05:43:00.130871+00:00"
+        },
+        {
+          "id": 7,
+          "name": "fiction",
+          "display_name": "fiction",
+          "description": "Synced from Vertex AI on 2026-01-08T11:36:05.531300",
+          "gcs_bucket": "gs://adk-rag-ma-fiction",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/7991637538768945152",
+          "is_active": 0,
+          "created_at": "2026-01-08T19:36:05.531312+00:00"
+        },
+        {
+          "id": 8,
+          "name": "recipes",
+          "display_name": "recipes",
+          "description": "Synced from Vertex AI on 2026-01-08T12:55:42.546437",
+          "gcs_bucket": "gs://adk-rag-ma-recipes",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/4532873024948404224",
+          "is_active": 1,
+          "created_at": "2026-01-08T20:55:42.546450+00:00"
+        },
+        {
+          "id": 9,
+          "name": "semantic-web",
+          "display_name": "semantic-web",
+          "description": "Synced from Vertex AI",
+          "gcs_bucket": "",
+          "vertex_corpus_id": "projects/adk-rag-ma/locations/us-west1/ragCorpora/4749045807062188032",
+          "is_active": 1,
+          "created_at": "2026-01-09T05:21:30.037150+00:00"
+        }
+      ]
+    },
+    "corpus_audit_log": {
+      "columns": [
+        "id",
+        "corpus_id",
+        "user_id",
+        "action",
+        "changes",
+        "metadata",
+        "timestamp"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "corpus_id": 9,
+          "user_id": 2,
+          "action": "created",
+          "changes": "{\"source\": \"vertex_ai_sync\"}",
+          "metadata": "{\"operation\": \"sync\"}",
+          "timestamp": "2026-01-09T05:21:30.044382"
+        },
+        {
+          "id": 2,
+          "corpus_id": 9,
+          "user_id": 2,
+          "action": "updated",
+          "changes": "{\"before\": {\"id\": 6, \"corpus_id\": 9, \"created_by\": 2, \"created_at\": \"2026-01-09T05:21:30.041852\", \"last_synced_at\": null, \"last_synced_by\": null, \"document_count\": 0, \"last_document_count_update\": null, \"sync_status\": \"active\", \"sync_error_message\": null, \"tags\": null, \"notes\": null, \"created_by_name\": \"alice\", \"last_synced_by_name\": null}, \"after\": {\"id\": 6, \"corpus_id\": 9, \"created_by\": 2, \"created_at\": \"2026-01-09T05:21:30.041852\", \"last_synced_at\": null, \"last_synced_by\": null, \"document_count\": 0, \"last_document_count_update\": null, \"sync_status\": \"active\", \"sync_error_message\": null, \"tags\": \"semantic, web, html\", \"notes\": \"\", \"created_by_name\": \"alice\", \"last_synced_by_name\": null}, \"fields\": [\"tags\", \"notes\"]}",
+          "metadata": "{\"operation\": \"update_metadata\"}",
+          "timestamp": "2026-01-09T05:27:36.928697"
+        },
+        {
+          "id": 3,
+          "corpus_id": 2,
+          "user_id": 2,
+          "action": "granted_access",
+          "changes": "{\"group_id\": 3, \"permission\": \"read\"}",
+          "metadata": "{\"operation\": \"grant_permission\"}",
+          "timestamp": "2026-01-09T05:51:40.726622"
+        },
+        {
+          "id": 4,
+          "corpus_id": 8,
+          "user_id": 2,
+          "action": "granted_access",
+          "changes": "{\"group_id\": 2, \"permission\": \"read\"}",
+          "metadata": "{\"operation\": \"grant_permission\"}",
+          "timestamp": "2026-01-09T05:53:51.828754"
+        },
+        {
+          "id": 5,
+          "corpus_id": 8,
+          "user_id": 2,
+          "action": "revoked_access",
+          "changes": "{\"group_id\": 2}",
+          "metadata": "{\"operation\": \"revoke_permission\"}",
+          "timestamp": "2026-01-09T05:53:54.151794"
+        },
+        {
+          "id": 6,
+          "corpus_id": null,
+          "user_id": 2,
+          "action": "created_user",
+          "changes": "{\"new_user_id\": 5, \"username\": \"testuser\", \"groups\": []}",
+          "metadata": "{\"operation\": \"user_create\"}",
+          "timestamp": "2026-01-09T06:38:04.374833"
+        },
+        {
+          "id": 7,
+          "corpus_id": 9,
+          "user_id": 2,
+          "action": "updated",
+          "changes": "{\"before\": {\"id\": 6, \"corpus_id\": 9, \"created_by\": 2, \"created_at\": \"2026-01-09T05:21:30.041852\", \"last_synced_at\": null, \"last_synced_by\": null, \"document_count\": 0, \"last_document_count_update\": null, \"sync_status\": \"active\", \"sync_error_message\": null, \"tags\": \"semantic, web, html\", \"notes\": \"\", \"created_by_name\": \"alice\", \"last_synced_by_name\": null}, \"after\": {\"id\": 6, \"corpus_id\": 9, \"created_by\": 2, \"created_at\": \"2026-01-09T05:21:30.041852\", \"last_synced_at\": null, \"last_synced_by\": null, \"document_count\": 0, \"last_document_count_update\": null, \"sync_status\": \"active\", \"sync_error_message\": null, \"tags\": \"semantic, web, html\", \"notes\": \"\", \"created_by_name\": \"alice\", \"last_synced_by_name\": null}, \"fields\": [\"tags\", \"notes\"]}",
+          "metadata": "{\"operation\": \"update_metadata\"}",
+          "timestamp": "2026-01-09T07:11:51.003527"
+        },
+        {
+          "id": 8,
+          "corpus_id": null,
+          "user_id": 1,
+          "action": "deleted_user",
+          "changes": "{\"target_user_id\": 5, \"username\": \"testuser\"}",
+          "metadata": "{\"operation\": \"user_delete\"}",
+          "timestamp": "2026-01-09T23:04:58.606942"
+        },
+        {
+          "id": 9,
+          "corpus_id": null,
+          "user_id": 1,
+          "action": "deleted_user",
+          "changes": "{\"target_user_id\": 5, \"username\": \"testuser\"}",
+          "metadata": "{\"operation\": \"user_delete\"}",
+          "timestamp": "2026-01-09T23:05:10.458779"
+        },
+        {
+          "id": 10,
+          "corpus_id": null,
+          "user_id": 1,
+          "action": "created_user",
+          "changes": "{\"new_user_id\": 6, \"username\": \"andrew\", \"groups\": [2]}",
+          "metadata": "{\"operation\": \"user_create\"}",
+          "timestamp": "2026-01-10T20:12:00.153817"
+        }
+      ]
+    },
+    "corpus_metadata": {
+      "columns": [
+        "id",
+        "corpus_id",
+        "created_by",
+        "created_at",
+        "last_synced_at",
+        "last_synced_by",
+        "document_count",
+        "last_document_count_update",
+        "sync_status",
+        "sync_error_message",
+        "tags",
+        "notes"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "corpus_id": 2,
+          "created_by": null,
+          "created_at": "2026-01-09T02:30:46.005640",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        },
+        {
+          "id": 2,
+          "corpus_id": 3,
+          "created_by": null,
+          "created_at": "2026-01-09T02:37:11.428108",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        },
+        {
+          "id": 3,
+          "corpus_id": 4,
+          "created_by": null,
+          "created_at": "2026-01-09T02:37:11.436151",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        },
+        {
+          "id": 4,
+          "corpus_id": 5,
+          "created_by": null,
+          "created_at": "2026-01-09T02:37:11.444093",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        },
+        {
+          "id": 5,
+          "corpus_id": 8,
+          "created_by": null,
+          "created_at": "2026-01-09T02:37:11.451655",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        },
+        {
+          "id": 6,
+          "corpus_id": 9,
+          "created_by": 2,
+          "created_at": "2026-01-09T05:21:30.041852",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": "semantic, web, html",
+          "notes": ""
+        },
+        {
+          "id": 7,
+          "corpus_id": 1,
+          "created_by": null,
+          "created_at": "2026-01-10T20:44:14.362680",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        },
+        {
+          "id": 8,
+          "corpus_id": 7,
+          "created_by": null,
+          "created_at": "2026-01-10T20:44:14.385250",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        },
+        {
+          "id": 9,
+          "corpus_id": 6,
+          "created_by": null,
+          "created_at": "2026-01-10T20:44:14.399491",
+          "last_synced_at": null,
+          "last_synced_by": null,
+          "document_count": 0,
+          "last_document_count_update": null,
+          "sync_status": "active",
+          "sync_error_message": null,
+          "tags": null,
+          "notes": null
+        }
+      ]
+    },
+    "corpus_sync_schedule": {
+      "columns": [
+        "id",
+        "corpus_id",
+        "frequency",
+        "last_run",
+        "next_run",
+        "is_active"
+      ],
+      "rows": []
+    },
+    "group_corpus_access": {
+      "columns": [
+        "id",
+        "group_id",
+        "corpus_id",
+        "permission",
+        "granted_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "group_id": 1,
+          "corpus_id": 1,
+          "permission": "read",
+          "granted_at": "2025-12-31 23:40:41"
+        },
+        {
+          "id": 2,
+          "group_id": 3,
+          "corpus_id": 1,
+          "permission": "write",
+          "granted_at": "2025-12-31 23:40:41"
+        },
+        {
+          "id": 3,
+          "group_id": 3,
+          "corpus_id": 2,
+          "permission": "read",
+          "granted_at": "2025-12-31 23:40:41"
+        },
+        {
+          "id": 4,
+          "group_id": 2,
+          "corpus_id": 1,
+          "permission": "admin",
+          "granted_at": "2025-12-31 23:40:41"
+        },
+        {
+          "id": 5,
+          "group_id": 2,
+          "corpus_id": 2,
+          "permission": "admin",
+          "granted_at": "2025-12-31 23:40:41"
+        },
+        {
+          "id": 6,
+          "group_id": 4,
+          "corpus_id": 1,
+          "permission": "admin",
+          "granted_at": "2026-01-01 18:52:18"
+        },
+        {
+          "id": 7,
+          "group_id": 4,
+          "corpus_id": 2,
+          "permission": "admin",
+          "granted_at": "2026-01-01 18:52:18"
+        },
+        {
+          "id": 8,
+          "group_id": 5,
+          "corpus_id": 1,
+          "permission": "admin",
+          "granted_at": "2026-01-01 18:52:18"
+        },
+        {
+          "id": 9,
+          "group_id": 5,
+          "corpus_id": 2,
+          "permission": "admin",
+          "granted_at": "2026-01-01 18:52:18"
+        },
+        {
+          "id": 10,
+          "group_id": 6,
+          "corpus_id": 1,
+          "permission": "read",
+          "granted_at": "2026-01-01 18:52:18"
+        },
+        {
+          "id": 11,
+          "group_id": 6,
+          "corpus_id": 2,
+          "permission": "read",
+          "granted_at": "2026-01-01 18:52:18"
+        },
+        {
+          "id": 12,
+          "group_id": 2,
+          "corpus_id": 3,
+          "permission": "admin",
+          "granted_at": "2026-01-02 21:49:30"
+        },
+        {
+          "id": 13,
+          "group_id": 3,
+          "corpus_id": 3,
+          "permission": "write",
+          "granted_at": "2026-01-02 21:49:30"
+        },
+        {
+          "id": 14,
+          "group_id": 6,
+          "corpus_id": 3,
+          "permission": "read",
+          "granted_at": "2026-01-02 21:49:30"
+        },
+        {
+          "id": 15,
+          "group_id": 4,
+          "corpus_id": 3,
+          "permission": "admin",
+          "granted_at": "2026-01-02 21:56:14"
+        },
+        {
+          "id": 16,
+          "group_id": 5,
+          "corpus_id": 3,
+          "permission": "admin",
+          "granted_at": "2026-01-02 21:56:14"
+        },
+        {
+          "id": 17,
+          "group_id": 2,
+          "corpus_id": 4,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 18,
+          "group_id": 3,
+          "corpus_id": 4,
+          "permission": "read",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 19,
+          "group_id": 4,
+          "corpus_id": 4,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 20,
+          "group_id": 5,
+          "corpus_id": 4,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 21,
+          "group_id": 6,
+          "corpus_id": 4,
+          "permission": "read",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 22,
+          "group_id": 2,
+          "corpus_id": 5,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 23,
+          "group_id": 3,
+          "corpus_id": 5,
+          "permission": "read",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 24,
+          "group_id": 4,
+          "corpus_id": 5,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 25,
+          "group_id": 5,
+          "corpus_id": 5,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 26,
+          "group_id": 6,
+          "corpus_id": 5,
+          "permission": "read",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 27,
+          "group_id": 2,
+          "corpus_id": 6,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 28,
+          "group_id": 3,
+          "corpus_id": 6,
+          "permission": "read",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 29,
+          "group_id": 4,
+          "corpus_id": 6,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 30,
+          "group_id": 5,
+          "corpus_id": 6,
+          "permission": "admin",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 31,
+          "group_id": 6,
+          "corpus_id": 6,
+          "permission": "read",
+          "granted_at": "2026-01-08 15:38:21"
+        },
+        {
+          "id": 32,
+          "group_id": 4,
+          "corpus_id": 7,
+          "permission": "read",
+          "granted_at": "2026-01-08 19:38:45"
+        },
+        {
+          "id": 33,
+          "group_id": 4,
+          "corpus_id": 8,
+          "permission": "read",
+          "granted_at": "2026-01-08 20:56:12"
+        }
+      ]
+    },
+    "group_roles": {
+      "columns": [
+        "id",
+        "group_id",
+        "role_id",
+        "assigned_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "group_id": 1,
+          "role_id": 1,
+          "assigned_at": "2025-12-31 23:40:41"
+        },
+        {
+          "id": 2,
+          "group_id": 2,
+          "role_id": 3,
+          "assigned_at": "2025-12-31 23:40:41"
+        },
+        {
+          "id": 3,
+          "group_id": 3,
+          "role_id": 1,
+          "assigned_at": "2025-12-31 23:40:41"
+        }
+      ]
+    },
+    "groups": {
+      "columns": [
+        "id",
+        "name",
+        "description",
+        "created_at",
+        "is_active"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "name": "default-users",
+          "description": "Default group for all users",
+          "created_at": "2025-12-31T23:40:41.130214+00:00",
+          "is_active": 1
+        },
+        {
+          "id": 2,
+          "name": "admin-users",
+          "description": "Administrative users with elevated privileges",
+          "created_at": "2025-12-31T23:40:41.133970+00:00",
+          "is_active": 1
+        },
+        {
+          "id": 3,
+          "name": "develom-group",
+          "description": "Develom organization users",
+          "created_at": "2025-12-31T23:40:41.136943+00:00",
+          "is_active": 1
+        },
+        {
+          "id": 4,
+          "name": "developers",
+          "description": "Software developers with full access",
+          "created_at": "2026-01-01T18:43:11.515651+00:00",
+          "is_active": 1
+        },
+        {
+          "id": 5,
+          "name": "managers",
+          "description": "Managers with oversight access",
+          "created_at": "2026-01-01T18:43:11.547268+00:00",
+          "is_active": 1
+        },
+        {
+          "id": 6,
+          "name": "viewers",
+          "description": "Users with read-only access",
+          "created_at": "2026-01-01T18:43:11.577979+00:00",
+          "is_active": 1
+        }
+      ]
+    },
+    "roles": {
+      "columns": [
+        "id",
+        "name",
+        "description",
+        "permissions",
+        "created_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "name": "user",
+          "description": "Standard user role",
+          "permissions": "[\"read:own_profile\", \"update:own_profile\", \"read:own_corpora\", \"chat:own_agents\", \"read:agents\", \"switch:agents\"]",
+          "created_at": "2025-12-31T23:40:41.140682+00:00"
+        },
+        {
+          "id": 2,
+          "name": "corpus_admin",
+          "description": "Corpus administrator",
+          "permissions": "[\"create:corpus\", \"update:corpus\", \"delete:corpus\", \"manage:corpus_access\", \"read:all_corpora\"]",
+          "created_at": "2025-12-31T23:40:41.144258+00:00"
+        },
+        {
+          "id": 3,
+          "name": "system_admin",
+          "description": "System administrator with full access",
+          "permissions": "[\"*\"]",
+          "created_at": "2025-12-31T23:40:41.147724+00:00"
+        }
+      ]
+    },
+    "schema_migrations": {
+      "columns": [
+        "id",
+        "migration_name",
+        "applied_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "migration_name": "001_initial_schema.sql",
+          "applied_at": "2025-12-31 23:36:50"
+        },
+        {
+          "id": 2,
+          "migration_name": "002_add_groups_roles.sql",
+          "applied_at": "2025-12-31 23:36:50"
+        },
+        {
+          "id": 3,
+          "migration_name": "003_add_agents_corpora.sql",
+          "applied_at": "2025-12-31 23:36:50"
+        },
+        {
+          "id": 4,
+          "migration_name": "004_add_admin_tables.sql",
+          "applied_at": "2026-01-10 01:55:32"
+        },
+        {
+          "id": 5,
+          "migration_name": "005_add_user_query_count.sql",
+          "applied_at": "2026-01-10 02:12:01"
+        }
+      ]
+    },
+    "session_corpus_selections": {
+      "columns": [
+        "id",
+        "user_id",
+        "corpus_id",
+        "last_selected_at"
+      ],
+      "rows": []
+    },
+    "user_agent_access": {
+      "columns": [
+        "id",
+        "user_id",
+        "agent_id",
+        "granted_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "agent_id": 2,
+          "granted_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 2,
+          "user_id": 1,
+          "agent_id": 3,
+          "granted_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 3,
+          "user_id": 1,
+          "agent_id": 4,
+          "granted_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 4,
+          "user_id": 1,
+          "agent_id": 1,
+          "granted_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 5,
+          "user_id": 1,
+          "agent_id": 5,
+          "granted_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 6,
+          "user_id": 1,
+          "agent_id": 6,
+          "granted_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 10,
+          "user_id": 2,
+          "agent_id": 1,
+          "granted_at": "2026-01-02 17:58:24"
+        },
+        {
+          "id": 11,
+          "user_id": 4,
+          "agent_id": 2,
+          "granted_at": "2026-01-02 17:58:24"
+        },
+        {
+          "id": 12,
+          "user_id": 3,
+          "agent_id": 3,
+          "granted_at": "2026-01-02 17:58:24"
+        }
+      ]
+    },
+    "user_groups": {
+      "columns": [
+        "id",
+        "user_id",
+        "group_id",
+        "assigned_at"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "group_id": 2,
+          "assigned_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 2,
+          "user_id": 1,
+          "group_id": 1,
+          "assigned_at": "2025-12-31 23:48:38"
+        },
+        {
+          "id": 3,
+          "user_id": 2,
+          "group_id": 4,
+          "assigned_at": "2026-01-01 18:48:14"
+        },
+        {
+          "id": 4,
+          "user_id": 4,
+          "group_id": 5,
+          "assigned_at": "2026-01-01 18:48:14"
+        },
+        {
+          "id": 5,
+          "user_id": 3,
+          "group_id": 6,
+          "assigned_at": "2026-01-01 18:48:14"
+        },
+        {
+          "id": 6,
+          "user_id": 2,
+          "group_id": 2,
+          "assigned_at": "2026-01-09 01:18:03"
+        },
+        {
+          "id": 7,
+          "user_id": 6,
+          "group_id": 2,
+          "assigned_at": "2026-01-10 20:12:00"
+        }
+      ]
+    },
+    "user_profiles": {
+      "columns": [
+        "id",
+        "user_id",
+        "theme",
+        "language",
+        "timezone",
+        "preferences"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "theme": "light",
+          "language": "en",
+          "timezone": "UTC",
+          "preferences": "{\"selected_corpora\": [\"management\", \"design\", \"ai-books\"]}"
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "theme": "light",
+          "language": "en",
+          "timezone": "UTC",
+          "preferences": "{\"selected_corpora\": [\"ai-books\", \"design\", \"management\"]}"
+        },
+        {
+          "id": 3,
+          "user_id": 3,
+          "theme": "light",
+          "language": "en",
+          "timezone": "UTC",
+          "preferences": null
+        },
+        {
+          "id": 4,
+          "user_id": 4,
+          "theme": "light",
+          "language": "en",
+          "timezone": "UTC",
+          "preferences": null
+        },
+        {
+          "id": 5,
+          "user_id": 5,
+          "theme": "light",
+          "language": "en",
+          "timezone": "UTC",
+          "preferences": null
+        },
+        {
+          "id": 6,
+          "user_id": 6,
+          "theme": "light",
+          "language": "en",
+          "timezone": "UTC",
+          "preferences": null
+        }
+      ]
+    },
+    "user_sessions": {
+      "columns": [
+        "id",
+        "session_id",
+        "user_id",
+        "active_agent_id",
+        "active_corpora",
+        "created_at",
+        "last_activity",
+        "expires_at",
+        "is_active",
+        "message_count",
+        "user_query_count"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "session_id": "8ed85514-1227-4f14-abfb-9b4693810e12",
+          "user_id": 2,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-09T22:50:01.801117+00:00",
+          "last_activity": "2026-01-09T22:50:01.801117+00:00",
+          "expires_at": "2026-01-10T22:50:01.801131+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 2,
+          "session_id": "5b2878b9-59bd-4631-8dea-0d0b4be7e314",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-09T23:00:23.362922+00:00",
+          "last_activity": "2026-01-09T23:00:23.362922+00:00",
+          "expires_at": "2026-01-10T23:00:23.362941+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 3,
+          "session_id": "a395ec49-9b19-4f63-b7af-a6a6c7e8ef1c",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-09T23:05:43.888406+00:00",
+          "last_activity": "2026-01-09T23:05:43.888406+00:00",
+          "expires_at": "2026-01-10T23:05:43.888423+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 4,
+          "session_id": "3d58981d-e2fc-4363-8ef6-7a8944432403",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-09T23:06:11.212189+00:00",
+          "last_activity": "2026-01-09T23:06:11.212189+00:00",
+          "expires_at": "2026-01-10T23:06:11.212203+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 5,
+          "session_id": "07b18a22-8aea-4bec-ac44-769598396329",
+          "user_id": 2,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-09T23:14:30.337640+00:00",
+          "last_activity": "2026-01-09T23:14:30.337640+00:00",
+          "expires_at": "2026-01-10T23:14:30.337662+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 6,
+          "session_id": "7bd49b22-d12a-4642-ab72-879ee1b90a78",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-09T23:15:01.690760+00:00",
+          "last_activity": "2026-01-09T23:15:01.690760+00:00",
+          "expires_at": "2026-01-10T23:15:01.690776+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 7,
+          "session_id": "58983816-cf43-49fa-807c-6cfb54334893",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T00:37:37.526356+00:00",
+          "last_activity": "2026-01-10T00:37:37.526356+00:00",
+          "expires_at": "2026-01-11T00:37:37.526370+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 8,
+          "session_id": "16c3faaa-9341-4fc5-8451-53f210291aa6",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T00:39:45.755796+00:00",
+          "last_activity": "2026-01-10T00:39:45.755796+00:00",
+          "expires_at": "2026-01-11T00:39:45.755807+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 9,
+          "session_id": "d521ebc1-648c-4f00-8eef-e38165c5a770",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T00:47:09.422202+00:00",
+          "last_activity": "2026-01-10T00:47:09.422202+00:00",
+          "expires_at": "2026-01-11T00:47:09.422214+00:00",
+          "is_active": 1,
+          "message_count": 0,
+          "user_query_count": 0
+        },
+        {
+          "id": 10,
+          "session_id": "fd0699fd-9486-4814-9669-15053738b870",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T02:02:13.649988+00:00",
+          "last_activity": "2026-01-10T02:02:16.601252+00:00",
+          "expires_at": "2026-01-11T02:02:13.649997+00:00",
+          "is_active": 1,
+          "message_count": 2,
+          "user_query_count": 0
+        },
+        {
+          "id": 11,
+          "session_id": "913a3eb3-2658-4a10-8a64-c7d2b5ccf600",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T02:03:55.337956+00:00",
+          "last_activity": "2026-01-10T02:03:56.608582+00:00",
+          "expires_at": "2026-01-11T02:03:55.337969+00:00",
+          "is_active": 1,
+          "message_count": 2,
+          "user_query_count": 0
+        },
+        {
+          "id": 12,
+          "session_id": "14579683-2c46-48bb-ae11-b8bc06234e46",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T02:17:56.549248+00:00",
+          "last_activity": "2026-01-10T02:18:26.973107+00:00",
+          "expires_at": "2026-01-11T02:17:56.549259+00:00",
+          "is_active": 1,
+          "message_count": 6,
+          "user_query_count": 0
+        },
+        {
+          "id": 13,
+          "session_id": "c0d65c25-a52f-4924-ba97-751e25ab9c28",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T19:03:23.082583+00:00",
+          "last_activity": "2026-01-10T19:12:15.780614+00:00",
+          "expires_at": "2026-01-11T19:03:23.082593+00:00",
+          "is_active": 1,
+          "message_count": 6,
+          "user_query_count": 3
+        },
+        {
+          "id": 14,
+          "session_id": "e571a015-d69c-4481-808a-219dd6337211",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T19:12:55.841529+00:00",
+          "last_activity": "2026-01-10T19:13:04.802858+00:00",
+          "expires_at": "2026-01-11T19:12:55.841543+00:00",
+          "is_active": 1,
+          "message_count": 2,
+          "user_query_count": 1
+        },
+        {
+          "id": 15,
+          "session_id": "5ce72ed1-b746-41cf-b9fb-c03a8c43e2e8",
+          "user_id": 1,
+          "active_agent_id": 1,
+          "active_corpora": null,
+          "created_at": "2026-01-10T20:05:40.626172+00:00",
+          "last_activity": "2026-01-10T20:41:12.613419+00:00",
+          "expires_at": "2026-01-11T20:05:40.626190+00:00",
+          "is_active": 1,
+          "message_count": 4,
+          "user_query_count": 2
+        }
+      ]
+    },
+    "users": {
+      "columns": [
+        "id",
+        "username",
+        "email",
+        "full_name",
+        "hashed_password",
+        "is_active",
+        "default_agent_id",
+        "created_at",
+        "updated_at",
+        "last_login"
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "username": "admin",
+          "email": "admin@develom.com",
+          "full_name": "Admin User - admin",
+          "hashed_password": "$2b$12$b4H1t1fmUmfN3lmK2DPUy.vUSMsHu5lc9LWiFcYTb9oQq1I2eNCra",
+          "is_active": 1,
+          "default_agent_id": 1,
+          "created_at": "2025-12-31T23:48:38.052975+00:00",
+          "updated_at": "2026-01-09T21:46:45.096674+00:00",
+          "last_login": "2026-01-10T20:05:19.261525+00:00"
+        },
+        {
+          "id": 2,
+          "username": "alice",
+          "email": "alice@example.com",
+          "full_name": "Alice Developer",
+          "hashed_password": "$2b$12$vdKQtMBpVJvAptANBhlV5uoES7MQrdFHzNYUFG1ZPBYNA4HVnaeaq",
+          "is_active": 1,
+          "default_agent_id": 1,
+          "created_at": "2026-01-01T18:43:11.156214+00:00",
+          "updated_at": "2026-01-09T21:46:44.839756+00:00",
+          "last_login": "2026-01-10T01:14:03.414354+00:00"
+        },
+        {
+          "id": 3,
+          "username": "charlie",
+          "email": "charlie@example.com",
+          "full_name": "Charlie Viewer",
+          "hashed_password": "$2b$12$MA3fq4EJAEOw/zz7R/RHIOVxXAU9mBrG9z0RKXFw9sCBu7Xw2fO/S",
+          "is_active": 1,
+          "default_agent_id": 3,
+          "created_at": "2026-01-01T18:43:11.474913+00:00",
+          "updated_at": "2026-01-01T18:43:11.474913+00:00",
+          "last_login": "2026-01-09T01:50:17.224527+00:00"
+        },
+        {
+          "id": 4,
+          "username": "bob",
+          "email": "bob@example.com",
+          "full_name": "Bob Manager",
+          "hashed_password": "$2b$12$qEe5/ZMIrYu1lw.a0pl3melcc7Uk6./lHO/eltcuXygEp9sxaGtdO",
+          "is_active": 1,
+          "default_agent_id": 2,
+          "created_at": "2026-01-01T18:43:56.557588+00:00",
+          "updated_at": "2026-01-01T18:43:56.557588+00:00",
+          "last_login": "2026-01-08T23:54:01.882215+00:00"
+        },
+        {
+          "id": 5,
+          "username": "testuser",
+          "email": "test@example.com",
+          "full_name": "Test User",
+          "hashed_password": "$2b$12$maH/O7i5YEA/nL0YtfsX0eftdXzFKXqU.zVidTgqwlK4lMJexito.",
+          "is_active": 1,
+          "default_agent_id": null,
+          "created_at": "2026-01-09T06:38:04.364866+00:00",
+          "updated_at": "2026-01-09T06:38:04.364866+00:00",
+          "last_login": null
+        },
+        {
+          "id": 6,
+          "username": "andrew",
+          "email": "andrew.stratton@usda.gov",
+          "full_name": "Andrew Stratton",
+          "hashed_password": "$2b$12$Y96v8wXlGzwLwWpjLtmTxOC1o/ejxr2Fr0iDbW0SLAyD1ngCTDTEq",
+          "is_active": 1,
+          "default_agent_id": null,
+          "created_at": "2026-01-10T20:12:00.144864+00:00",
+          "updated_at": "2026-01-10T20:12:00.144864+00:00",
+          "last_login": null
+        }
+      ]
+    }
+  }
+}

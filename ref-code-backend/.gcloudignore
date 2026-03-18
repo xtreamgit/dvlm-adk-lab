@@ -1,0 +1,31 @@
+.gcloudignore
+.git
+.gitignore
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Test artifacts
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+bandit-report.json
+
+# Local dev files
+*.env
+.env.*
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp

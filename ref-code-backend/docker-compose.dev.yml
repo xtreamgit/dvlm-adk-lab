@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres-dev:
+    image: postgres:15
+    container_name: adk-postgres-dev
+    environment:
+      POSTGRES_DB: adk_agents_db_dev
+      POSTGRES_USER: adk_dev_user
+      POSTGRES_PASSWORD: dev_password_123
+    ports:
+      - "5433:5432"  # Use 5433 to avoid conflicts with any local PostgreSQL
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+      - ./init_postgresql_schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adk_dev_user -d adk_agents_db_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - adk-dev-network
+
+volumes:
+  postgres_dev_data:
+    driver: local
+
+networks:
+  adk-dev-network:
+    driver: bridge

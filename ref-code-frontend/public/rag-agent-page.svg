@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="-141 256 1138 713" width="1138" height="713">
+  <defs/>
+  <g id="Canvas_1" stroke-opacity="1" stroke-dasharray="none" fill-opacity="1" stroke="none" fill="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="-141" y="256" width="1138" height="713"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_2">
+        <rect x="115.79285" y="257.1329" width="880.7072" height="603.3671" fill="white"/>
+        <rect x="115.79285" y="257.1329" width="880.7072" height="603.3671" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_19">
+        <title>Rectangle</title>
+        <rect x="115.79285" y="489.75446" width="880.7072" height="86" fill="#ccc"/>
+        <rect x="115.79285" y="489.75446" width="880.7072" height="86" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_3">
+        <title>Welcome to USFS Retrieval Augmented Generation (RAG)</title>
+        <text transform="translate(390.5605 389.66155)" fill="black">
+          <tspan font-family="Helvetica" font-weight="bold" font-size="30" fill="black" x="0" y="29" xml:space="preserve">Welcome to USFS RAG</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <text transform="translate(260.04285 435.66155)" fill="black">
+          <tspan font-family="Helvetica" font-size="12" fill="black" x="118.88385" y="11" xml:space="preserve">Turn your documents into intelligent, queryable knowledge. Upload </tspan>
+          <tspan font-family="Helvetica" font-size="12" fill="black" x="143.12408" y="25" xml:space="preserve">files and chat with your content using Google’s Gemini AI.</tspan>
+        </text>
+      </g>
+      <g id="Graphic_9">
+        <text transform="translate(440.3847 496.40735)" fill="black">
+          <tspan font-family="Helvetica" font-weight="bold" font-size="20" fill="black" x="0" y="19" xml:space="preserve">Upload Your Documents</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <text transform="translate(457.2453 530.40735)" fill="black">
+          <tspan font-family="Helvetica" font-size="15" fill="black" x="0" y="15" xml:space="preserve">PDFs</tspan>
+        </text>
+      </g>
+      <g id="Graphic_12">
+        <text transform="translate(527.5014 530.40735)" fill="black">
+          <tspan font-family="Helvetica" font-size="15" fill="black" x="0" y="15" xml:space="preserve">Images</tspan>
+        </text>
+      </g>
+      <g id="Graphic_13">
+        <text transform="translate(609.44696 530.40735)" fill="black">
+          <tspan font-family="Helvetica" font-size="15" fill="black" x="0" y="15" xml:space="preserve">Videos</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <text transform="translate(493.7851 558.40735)" fill="#4186f4">
+          <tspan font-family="Helvetica" font-size="12" fill="#4186f4" x="0" y="11" xml:space="preserve">Model: gemini-2.5-flash</tspan>
+        </text>
+      </g>
+      <g id="Graphic_24">
+        <title>Rectangle</title>
+        <rect x="242.68362" y="591.0308" width="200.04443" height="127.5" fill="#ccc"/>
+        <rect x="242.68362" y="591.0308" width="200.04443" height="127.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_25">
+        <title>Rectangle</title>
+        <rect x="456.1242" y="591.0308" width="200.04443" height="127.5" fill="#ccc"/>
+        <rect x="456.1242" y="591.0308" width="200.04443" height="127.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_26">
+        <title>Rectangle</title>
+        <rect x="669.5648" y="591.0308" width="200.04443" height="127.5" fill="#ccc"/>
+        <rect x="669.5648" y="591.0308" width="200.04443" height="127.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_60">
+        <g id="Graphic_20">
+          <text transform="translate(252.02396 642.81896)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="17" fill="black" x="0" y="16" xml:space="preserve">Document Intelligence</tspan>
+          </text>
+        </g>
+        <g id="Graphic_30">
+          <text transform="translate(247.68362 663.6669)" fill="black">
+            <tspan font-family="Helvetica" font-size="10" fill="black" x="6.380463" y="10" xml:space="preserve">Upload PDF’s, images, videos and text </tspan>
+            <tspan font-family="Helvetica" font-size="10" fill="black" x="2.1177673" y="22" xml:space="preserve">files. Chat with your content using Vertex </tspan>
+            <tspan font-family="Helvetica" font-size="10" fill="black" x="58.538666" y="34" xml:space="preserve">AI RAG Engine</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_61">
+        <g id="Graphic_21">
+          <text transform="translate(471.11737 642.81896)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="17" fill="black" x="0" y="16" xml:space="preserve">Instant Smart Search</tspan>
+          </text>
+        </g>
+        <g id="Graphic_31">
+          <text transform="translate(461.3284 663.6669)" fill="black">
+            <tspan font-family="Helvetica" font-size="10" fill="black" x="1.7975616" y="10" xml:space="preserve">Ask questions in natural language and get </tspan>
+            <tspan font-family="Helvetica" font-size="10" fill="black" x="9.053421" y="22" xml:space="preserve">precise answers from your documents.</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_62">
+        <g id="Graphic_22">
+          <text transform="translate(690.2564 642.81896)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="17" fill="black" x="0" y="16" xml:space="preserve">Multimedia Support</tspan>
+          </text>
+        </g>
+        <g id="Graphic_32">
+          <text transform="translate(674.5648 663.6669)" fill="black">
+            <tspan font-family="Helvetica" font-size="10" fill="black" x="7.930374" y="10" xml:space="preserve">Analyze images, transcribe videos, and </tspan>
+            <tspan font-family="Helvetica" font-size="10" fill="black" x="20.723343" y="22" xml:space="preserve">extract insights from any file type.</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_52">
+        <g id="Graphic_33">
+          <title>Rectangle</title>
+          <rect x="198.64642" y="733.8072" width="715" height="109" fill="#ccc"/>
+          <rect x="198.64642" y="733.8072" width="715" height="109" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_35">
+          <text transform="translate(252.29003 780.6494)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11" xml:space="preserve">“What are the key findings in my quaterly report?”</tspan>
+          </text>
+        </g>
+        <g id="Graphic_37">
+          <text transform="translate(251.20678 814.3963)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11" xml:space="preserve">“What does this image show about forest fires?”</tspan>
+          </text>
+        </g>
+        <g id="Graphic_38">
+          <text transform="translate(644.0779 814.3963)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11" xml:space="preserve">“Summarize the main points from the video.”</tspan>
+          </text>
+        </g>
+        <g id="Graphic_39">
+          <text transform="translate(645.16625 780.6494)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11" xml:space="preserve">“Find information about the product roadmap.”</tspan>
+          </text>
+        </g>
+        <g id="Graphic_40">
+          <title>List</title>
+          <path d="M 621.7902 789.3281 L 623.832 789.3281 L 623.832 787.2863 L 621.7902 787.2863 L 621.7902 789.3281 Z M 621.7902 793.41165 L 623.832 793.41165 L 623.832 791.3699 L 621.7902 791.3699 L 621.7902 793.41165 Z M 621.7902 785.2445 L 623.832 785.2445 L 623.832 783.20275 L 621.7902 783.20275 L 621.7902 785.2445 Z M 625.8738 789.3281 L 640.16625 789.3281 L 640.16625 787.2863 L 625.8738 787.2863 L 625.8738 789.3281 Z M 625.8738 793.41165 L 640.16625 793.41165 L 640.16625 791.3699 L 625.8738 791.3699 L 625.8738 793.41165 Z M 625.8738 783.20275 L 625.8738 785.2445 L 640.16625 785.2445 L 640.16625 783.20275 L 625.8738 783.20275 Z" fill="#008f00"/>
+        </g>
+        <g id="Graphic_42">
+          <title>List</title>
+          <path d="M 620.70184 820.4686 L 622.7436 820.4686 L 622.7436 818.4269 L 620.70184 818.4269 L 620.70184 820.4686 Z M 620.70184 824.5522 L 622.7436 824.5522 L 622.7436 822.5104 L 620.70184 822.5104 L 620.70184 824.5522 Z M 620.70184 816.3851 L 622.7436 816.3851 L 622.7436 814.3433 L 620.70184 814.3433 L 620.70184 816.3851 Z M 624.7854 820.4686 L 639.0779 820.4686 L 639.0779 818.4269 L 624.7854 818.4269 L 624.7854 820.4686 Z M 624.7854 824.5522 L 639.0779 824.5522 L 639.0779 822.5104 L 624.7854 822.5104 L 624.7854 824.5522 Z M 624.7854 814.3433 L 624.7854 816.3851 L 639.0779 816.3851 L 639.0779 814.3433 L 624.7854 814.3433 Z" fill="#008f00"/>
+        </g>
+        <g id="Graphic_43">
+          <title>List</title>
+          <path d="M 227.95173 790.1021 L 229.9935 790.1021 L 229.9935 788.0603 L 227.95173 788.0603 L 227.95173 790.1021 Z M 227.95173 794.1856 L 229.9935 794.1856 L 229.9935 792.1439 L 227.95173 792.1439 L 227.95173 794.1856 Z M 227.95173 786.0185 L 229.9935 786.0185 L 229.9935 783.9767 L 227.95173 783.9767 L 227.95173 786.0185 Z M 232.0353 790.1021 L 246.32776 790.1021 L 246.32776 788.0603 L 232.0353 788.0603 L 232.0353 790.1021 Z M 232.0353 794.1856 L 246.32776 794.1856 L 246.32776 792.1439 L 232.0353 792.1439 L 232.0353 794.1856 Z M 232.0353 783.9767 L 232.0353 786.0185 L 246.32776 786.0185 L 246.32776 783.9767 L 232.0353 783.9767 Z" fill="#008f00"/>
+        </g>
+        <g id="Graphic_45">
+          <title>List</title>
+          <path d="M 227.83075 820.4686 L 229.87253 820.4686 L 229.87253 818.4269 L 227.83075 818.4269 L 227.83075 820.4686 Z M 227.83075 824.5522 L 229.87253 824.5522 L 229.87253 822.5104 L 227.83075 822.5104 L 227.83075 824.5522 Z M 227.83075 816.3851 L 229.87253 816.3851 L 229.87253 814.3433 L 227.83075 814.3433 L 227.83075 816.3851 Z M 231.9143 820.4686 L 246.20678 820.4686 L 246.20678 818.4269 L 231.9143 818.4269 L 231.9143 820.4686 Z M 231.9143 824.5522 L 246.20678 824.5522 L 246.20678 822.5104 L 231.9143 822.5104 L 231.9143 824.5522 Z M 231.9143 814.3433 L 231.9143 816.3851 L 246.20678 816.3851 L 246.20678 814.3433 L 231.9143 814.3433 Z" fill="#008f00"/>
+        </g>
+        <g id="Group_47">
+          <g id="Graphic_34">
+            <text transform="translate(406.02267 743.92825)" fill="black">
+              <tspan font-family="Helvetica" font-weight="bold" font-size="20" fill="black" x="0" y="19" xml:space="preserve">Try asking about your documents:</tspan>
+            </text>
+          </g>
+          <g id="Graphic_46">
+            <title>Keyboard Backspace</title>
+            <path d="M 384.32636 754.9828 L 395.05527 754.9828 L 392.34465 751.5887 L 393.41224 750.2556 L 397.9552 755.92825 L 393.41224 761.6009 L 392.34465 760.26785 L 395.05527 756.8737 L 384.32636 756.8737 Z" fill="#008f00"/>
+          </g>
+        </g>
+      </g>
+      <g id="Graphic_49">
+        <title>Photo</title>
+        <path d="M 522.5014 543.68896 L 522.5014 535.7487 C 522.5014 535.1248 521.99096 534.6144 521.3671 534.6144 L 513.4268 534.6144 C 512.80294 534.6144 512.2925 535.1248 512.2925 535.7487 L 512.2925 543.68896 C 512.2925 544.31284 512.80294 544.8233 513.4268 544.8233 L 521.3671 544.8233 C 521.99096 544.8233 522.5014 544.31284 522.5014 543.68896 Z M 515.4119 540.5696 L 516.8298 542.2767 L 518.81485 539.7188 L 521.3671 543.1218 L 513.4268 543.1218 L 515.4119 540.5696 Z" fill="#008f00"/>
+      </g>
+      <g id="Graphic_50">
+        <title>Switch Video</title>
+        <path d="M 604.71024 538.4427 L 604.71024 536.65616 C 604.71024 536.3754 604.48054 536.1457 604.1998 536.1457 L 597.05356 536.1457 C 596.7728 536.1457 596.5431 536.3754 596.5431 536.65616 L 596.5431 542.7815 C 596.5431 543.06225 596.7728 543.29195 597.05356 543.29195 L 604.1998 543.29195 C 604.48054 543.29195 604.71024 543.06225 604.71024 542.7815 L 604.71024 540.99495 L 606.752 543.0367 L 606.752 536.40094 L 604.71024 538.4427 Z M 602.158 541.5054 L 602.158 540.2293 L 599.09534 540.2293 L 599.09534 541.5054 L 597.3088 539.7188 L 599.09534 537.9323 L 599.09534 539.2084 L 602.158 539.2084 L 602.158 537.9323 L 603.9446 539.7188 L 602.158 541.5054 Z" fill="#008f00"/>
+      </g>
+      <g id="Graphic_51">
+        <title>Subject</title>
+        <path d="M 448.41696 543.5472 L 442.0364 543.5472 L 442.0364 544.8233 L 448.41696 544.8233 L 448.41696 543.5472 Z M 452.2453 538.4427 L 442.0364 538.4427 L 442.0364 539.71883 L 452.2453 539.71883 L 452.2453 538.4427 Z M 442.0364 542.27106 L 452.2453 542.27106 L 452.2453 540.99495 L 442.0364 540.99495 L 442.0364 542.27106 Z M 442.0364 535.8905 L 442.0364 537.1666 L 452.2453 537.1666 L 452.2453 535.8905 L 442.0364 535.8905 Z" fill="#008f00"/>
+      </g>
+      <g id="Graphic_78">
+        <title>Side Panel</title>
+        <rect x="-139.75473" y="257.1329" width="245.75473" height="710.8998" fill="#666"/>
+        <rect x="-139.75473" y="257.1329" width="245.75473" height="710.8998" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_53">
+        <title>Rectangle</title>
+        <rect x="115.79285" y="882.0327" width="880.7072" height="86" fill="#ccc"/>
+        <rect x="115.79285" y="882.0327" width="880.7072" height="86" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_70">
+        <path d="M 135 889.088 L 977.5 889.088 C 982.4706 889.088 986.5 893.1174 986.5 898.088 L 986.5 952.9359 C 986.5 957.9065 982.4706 961.9359 977.5 961.9359 L 135 961.9359 C 130.02944 961.9359 126 957.9065 126 952.9359 L 126 898.088 C 126 893.1174 130.02944 889.088 135 889.088 Z" fill="#008f00"/>
+        <path d="M 135 889.088 L 977.5 889.088 C 982.4706 889.088 986.5 893.1174 986.5 898.088 L 986.5 952.9359 C 986.5 957.9065 982.4706 961.9359 977.5 961.9359 L 135 961.9359 C 130.02944 961.9359 126 957.9065 126 952.9359 L 126 898.088 C 126 893.1174 130.02944 889.088 135 889.088 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_54">
+        <text transform="translate(136.37861 899.5654)" fill="#caf2df">
+          <tspan font-family="Helvetica" font-size="18" fill="#caf2df" x="0" y="18" xml:space="preserve">Type your prompt …</tspan>
+        </text>
+      </g>
+      <g id="Graphic_65">
+        <title>Search</title>
+        <path d="M 562.15786 624.919 L 560.89314 624.919 L 560.4449 624.4868 C 562.0138 622.6617 562.9583 620.2924 562.9583 617.7149 C 562.9583 611.9676 558.29965 607.30896 552.5524 607.30896 C 546.8051 607.30896 542.1464 611.9676 542.1464 617.7149 C 542.1464 623.4622 546.8051 628.12085 552.5524 628.12085 C 555.12984 628.12085 557.4992 627.1763 559.32424 625.6074 L 559.7565 626.0557 L 559.7565 627.3204 L 567.76106 635.30895 L 570.1464 632.9236 L 562.15786 624.919 Z M 552.5524 624.919 C 548.5661 624.919 545.34825 621.7012 545.34825 617.7149 C 545.34825 613.7286 548.5661 610.5108 552.5524 610.5108 C 556.53865 610.5108 559.7565 613.7286 559.7565 617.7149 C 559.7565 621.7012 556.53865 624.919 552.5524 624.919 Z" fill="black"/>
+      </g>
+      <g id="Graphic_66">
+        <title>Camera</title>
+        <path d="M 765.947 619.20896 L 772.625 607.64496 C 771.645 607.43496 770.637 607.30896 769.587 607.30896 C 766.227 607.30896 763.147 608.49896 760.739 610.45896 L 765.863 619.34896 L 765.947 619.20896 Z M 782.943 617.10896 C 781.655 613.02096 778.533 609.74496 774.543 608.23296 L 769.419 617.10896 L 782.943 617.10896 Z M 783.307 618.50896 L 772.821 618.50896 L 773.227 619.20896 L 779.891 630.75896 C 782.187 628.26696 783.587 624.96296 783.587 621.30896 C 783.587 620.34296 783.489 619.41896 783.307 618.50896 Z M 764.743 621.30896 L 759.283 611.85896 C 757.001 614.35096 755.587 617.65496 755.587 621.30896 C 755.587 622.27496 755.685 623.19896 755.867 624.10896 L 766.353 624.10896 L 764.743 621.30896 Z M 756.231 625.50896 C 757.519 629.59696 760.641 632.87296 764.631 634.38496 L 769.755 625.50896 L 756.231 625.50896 Z M 772.009 625.50896 L 766.549 634.97296 C 767.529 635.18296 768.537 635.30896 769.587 635.30896 C 772.947 635.30896 776.027 634.11896 778.435 632.15896 L 773.311 623.26896 L 772.009 625.50896 Z" fill="black"/>
+      </g>
+      <g id="Graphic_67">
+        <title>Assignment Ind</title>
+        <path d="M 351.42456 608.8645 L 344.92234 608.8645 C 344.269 607.0601 342.5579 605.7534 340.53568 605.7534 C 338.51345 605.7534 336.80234 607.0601 336.149 608.8645 L 329.6468 608.8645 C 327.93568 608.8645 326.53568 610.2645 326.53568 611.9756 L 326.53568 633.7534 C 326.53568 635.4645 327.93568 636.8645 329.6468 636.8645 L 351.42456 636.8645 C 353.13568 636.8645 354.53568 635.4645 354.53568 633.7534 L 354.53568 611.9756 C 354.53568 610.2645 353.13568 608.8645 351.42456 608.8645 Z M 340.53568 608.8645 C 341.39123 608.8645 342.09123 609.5645 342.09123 610.4201 C 342.09123 611.2756 341.39123 611.9756 340.53568 611.9756 C 339.6801 611.9756 338.9801 611.2756 338.9801 610.4201 C 338.9801 609.5645 339.6801 608.8645 340.53568 608.8645 Z M 340.53568 615.0867 C 343.1179 615.0867 345.20234 617.1712 345.20234 619.7534 C 345.20234 622.3356 343.1179 624.4201 340.53568 624.4201 C 337.95345 624.4201 335.869 622.3356 335.869 619.7534 C 335.869 617.1712 337.95345 615.0867 340.53568 615.0867 Z M 349.869 633.7534 L 331.20234 633.7534 L 331.20234 631.5756 C 331.20234 628.4645 337.42456 626.7534 340.53568 626.7534 C 343.6468 626.7534 349.869 628.4645 349.869 631.5756 L 349.869 633.7534 Z" fill="black"/>
+      </g>
+      <g id="Graphic_71">
+        <rect x="329.14642" y="295.70872" width="454" height="69" id="path"/>
+        <clipPath id="clip_path">
+          <use xl:href="#path"/>
+        </clipPath>
+        <g clip-path="url(#clip_path)">
+          <image xl:href="image1.png" width="454" height="69" transform="translate(329.14642 295.70872)"/>
+        </g>
+      </g>
+      <g id="Graphic_72">
+        <text transform="translate(-33.975958 360.35004)" fill="white">
+          <tspan font-family="Helvetica" font-size="18" fill="white" x="0" y="18" xml:space="preserve">Chat</tspan>
+        </text>
+      </g>
+      <g id="Graphic_73">
+        <text transform="translate(-31.030645 425.7456)" fill="white">
+          <tspan font-family="Helvetica" font-size="18" fill="white" x="0" y="18" xml:space="preserve">Documents</tspan>
+        </text>
+      </g>
+      <g id="Graphic_74">
+        <text transform="translate(-32.976934 491.14113)" fill="white">
+          <tspan font-family="Helvetica" font-size="18" fill="white" x="0" y="18" xml:space="preserve">History</tspan>
+        </text>
+      </g>
+      <g id="Graphic_75">
+        <text transform="translate(-33.25379 858.2679)" fill="white">
+          <tspan font-family="Helvetica" font-size="18" fill="white" x="0" y="18" xml:space="preserve">Profile</tspan>
+        </text>
+      </g>
+      <g id="Graphic_76">
+        <text transform="translate(-94.38225 280.9545)" fill="#00c100">
+          <tspan font-family="Helvetica" font-weight="bold" font-size="30" fill="#00c100" x="0" y="29" xml:space="preserve">USFS RAG</tspan>
+        </text>
+      </g>
+      <g id="Graphic_77">
+        <path d="M -107.79749 908.5934 L 74.04275 908.5934 C 79.01332 908.5934 83.04275 912.6228 83.04275 917.5934 L 83.04275 945.5934 C 83.04275 950.564 79.01332 954.5934 74.04275 954.5934 L -107.79749 954.5934 C -112.76805 954.5934 -116.79749 950.564 -116.79749 945.5934 L -116.79749 917.5934 C -116.79749 912.6228 -112.76805 908.5934 -107.79749 908.5934 Z" fill="#008f00"/>
+        <path d="M -107.79749 908.5934 L 74.04275 908.5934 C 79.01332 908.5934 83.04275 912.6228 83.04275 917.5934 L 83.04275 945.5934 C 83.04275 950.564 79.01332 954.5934 74.04275 954.5934 L -107.79749 954.5934 C -112.76805 954.5934 -116.79749 950.564 -116.79749 945.5934 L -116.79749 917.5934 C -116.79749 912.6228 -112.76805 908.5934 -107.79749 908.5934 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-111.79749 919.8134)" fill="white">
+          <tspan font-family="Helvetica Neue" font-size="20" fill="white" x="70.10012" y="19" xml:space="preserve">Login</tspan>
+        </text>
+      </g>
+      <g id="Graphic_79">
+        <title>Perm Identity</title>
+        <path d="M -66.32717 858.0679 C -64.00717 858.0679 -62.12717 859.9479 -62.12717 862.2679 C -62.12717 864.5879 -64.00717 866.4679 -66.32717 866.4679 C -68.64717 866.4679 -70.52717 864.5879 -70.52717 862.2679 C -70.52717 859.9479 -68.64717 858.0679 -66.32717 858.0679 M -66.32717 876.0679 C -60.38717 876.0679 -54.12717 878.9879 -54.12717 880.2679 L -54.12717 882.4679 L -78.52717 882.4679 L -78.52717 880.2679 C -78.52717 878.9879 -72.26717 876.0679 -66.32717 876.0679 M -66.32717 854.2679 C -70.74717 854.2679 -74.32717 857.8479 -74.32717 862.2679 C -74.32717 866.6879 -70.74717 870.2679 -66.32717 870.2679 C -61.90717 870.2679 -58.32717 866.6879 -58.32717 862.2679 C -58.32717 857.8479 -61.90717 854.2679 -66.32717 854.2679 Z M -66.32717 872.2679 C -71.66717 872.2679 -82.32717 874.9479 -82.32717 880.2679 L -82.32717 886.2679 L -50.32717 886.2679 L -50.32717 880.2679 C -50.32717 874.9479 -60.98717 872.2679 -66.32717 872.2679 Z" fill="black"/>
+      </g>
+      <g id="Graphic_80">
+        <title>Schedule</title>
+        <path d="M -73.60916 483.2043 C -84.76915 483.0793 -93.70915 492.0393 -93.70915 503.0793 C -93.70915 514.1193 -84.76915 523.0793 -73.72915 523.0793 C -62.66915 523.0793 -53.709146 514.1193 -53.709146 503.0793 C -53.709146 492.0393 -62.66915 483.2043 -73.60916 483.2043 Z M -73.60916 519.2043 L -73.60916 519.2043 C -82.54915 519.0793 -89.70915 511.9193 -89.70915 503.0793 C -89.70915 494.2393 -82.54915 487.0793 -73.70915 487.0793 C -64.86915 487.0793 -57.70915 494.2393 -57.70915 503.0793 C -57.70915 511.9193 -64.86915 519.2043 -73.60916 519.2043 Z M -72.60916 493.2043 L -75.60916 493.2043 L -75.60916 505.0793 L -65.20915 511.3793 L -63.70915 508.9193 L -72.60916 503.5793 Z" fill="black"/>
+      </g>
+      <g id="Graphic_81">
+        <title>Forum</title>
+        <path d="M -57.70915 360.35004 L -61.70915 360.35004 L -61.70915 378.35004 L -87.70915 378.35004 L -87.70915 382.35004 C -87.70915 383.45004 -86.80915 384.35004 -85.70915 384.35004 L -63.70915 384.35004 L -55.70915 392.35004 L -55.70915 362.35004 C -55.70915 361.25004 -56.60915 360.35004 -57.70915 360.35004 Z M -65.70915 372.35004 L -65.70915 354.35004 C -65.70915 353.25004 -66.60915 352.35004 -67.70915 352.35004 L -93.70915 352.35004 C -94.80915 352.35004 -95.70915 353.25004 -95.70915 354.35004 L -95.70915 382.35004 L -87.70915 374.35004 L -67.70915 374.35004 C -66.60915 374.35004 -65.70915 373.45004 -65.70915 372.35004 Z" fill="black"/>
+      </g>
+      <g id="Graphic_82">
+        <title>Receipt</title>
+        <path d="M -63.70915 447.7456 L -87.70915 447.7456 L -87.70915 443.7456 L -63.70915 443.7456 L -63.70915 447.7456 Z M -63.70915 439.7456 L -87.70915 439.7456 L -87.70915 435.7456 L -63.70915 435.7456 L -63.70915 439.7456 Z M -63.70915 431.7456 L -87.70915 431.7456 L -87.70915 427.7456 L -63.70915 427.7456 L -63.70915 431.7456 Z M -93.70915 457.7456 L -90.70915 454.7456 L -87.70915 457.7456 L -84.70915 454.7456 L -81.70915 457.7456 L -78.70915 454.7456 L -75.70915 457.7456 L -72.70915 454.7456 L -69.70915 457.7456 L -66.70915 454.7456 L -63.70915 457.7456 L -60.70915 454.7456 L -57.70915 457.7456 L -57.70915 417.7456 L -60.70915 420.7456 L -63.70915 417.7456 L -66.70915 420.7456 L -69.70915 417.7456 L -72.70915 420.7456 L -75.70915 417.7456 L -78.70915 420.7456 L -81.70915 417.7456 L -84.70915 420.7456 L -87.70915 417.7456 L -90.70915 420.7456 L -93.70915 417.7456 L -93.70915 457.7456 Z" fill="black"/>
+      </g>
+    </g>
+  </g>
+</svg>

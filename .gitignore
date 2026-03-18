@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+.coverage
+*.backup
+
+# Jenkins secrets
+jenkins/.env
+
+# Service Account Keys (NEVER commit these!)
+*-sa-key.json
+backend-sa-key.json
+service-account*.json
+
+# Log files
+*.log
+backend/backend.log
+frontend/frontend.log
+
+# Database backups
+backups/
+
+# Temporary deployment/migration files
+apply_missing_schema.sql
+cloud_schema_updates.sql
+backend/apply_schema_updates.py
+DEPLOYMENT_VERIFICATION.md
+
+.DS_Store
+*.bak.*
+
+# DB Audit Tool — generated reports and snapshots
+backend/db-audit/reports/*.json
+backend/db-audit/snapshots/*.json
