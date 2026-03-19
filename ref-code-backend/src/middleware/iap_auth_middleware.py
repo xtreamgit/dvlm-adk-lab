@@ -11,6 +11,7 @@ import os
 from fastapi import Request, HTTPException, status
 from typing import Optional
 import logging
+from datetime import datetime, timezone
 
 from services.iap_service import IAPService
 from services.user_service import UserService
@@ -45,17 +46,38 @@ async def _get_or_create_dev_user() -> User:
     """
     Get or create the dev mode user. Used only when IAP_DEV_MODE=true.
     """
-    user = UserService.get_user_by_email(IAP_DEV_USER_EMAIL)
-    if not user:
-        user = UserService.create_user_from_iap(
-            email=IAP_DEV_USER_EMAIL,
-            google_id="dev-mode-id",
-            full_name=IAP_DEV_USER_EMAIL.split("@")[0].replace(".", " ").title()
+    allow_no_db = os.getenv("ALLOW_START_WITHOUT_DB", "false").lower() == "true"
+    try:
+        user = UserService.get_user_by_email(IAP_DEV_USER_EMAIL)
+        if not user:
+            user = UserService.create_user_from_iap(
+                email=IAP_DEV_USER_EMAIL,
+                google_id="dev-mode-id",
+                full_name=IAP_DEV_USER_EMAIL.split("@")[0].replace(".", " ").title()
+            )
+            logger.info(f"Dev mode: created user for {IAP_DEV_USER_EMAIL}")
+        else:
+            UserService.update_last_login(user.id)
+        return user
+    except Exception as e:
+        if not allow_no_db:
+            raise
+        now = datetime.now(timezone.utc)
+        logger.warning(
+            "Dev mode: database unavailable, returning synthetic user because ALLOW_START_WITHOUT_DB=true",
+            extra={"error": str(e)[:300], "email": IAP_DEV_USER_EMAIL},
         )
-        logger.info(f"Dev mode: created user for {IAP_DEV_USER_EMAIL}")
-    else:
-        UserService.update_last_login(user.id)
-    return user
+        return User(
+            id=-1,
+            email=IAP_DEV_USER_EMAIL,
+            full_name=IAP_DEV_USER_EMAIL.split("@")[0].replace(".", " ").title(),
+            is_active=True,
+            default_agent_id=None,
+            google_id="dev-mode-id",
+            created_at=now,
+            updated_at=now,
+            last_login=now,
+        )
 
 
 async def get_current_user_iap(request: Request) -> User:

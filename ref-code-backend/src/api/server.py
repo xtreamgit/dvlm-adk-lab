@@ -63,7 +63,8 @@ try:
         iap_auth_router,
         documents_router,
         chatbot_admin_router,
-        google_groups_admin_router
+        google_groups_admin_router,
+        model_armor_router
     )
     NEW_ROUTES_AVAILABLE = True
     print("✅ New API routes loaded successfully")
@@ -96,13 +97,21 @@ logger.info("🔍 Initializing PostgreSQL database schema...")
 try:
     initialize_schema()
 except Exception as _schema_err:
-    logger.critical(
-        f"❌ FATAL: Database schema initialization failed — aborting startup.\n"
-        f"   Error: {_schema_err}\n"
-        f"   Fix DB_PASSWORD secret and CLOUD_SQL_CONNECTION_NAME then redeploy."
-    )
-    import sys
-    sys.exit(1)
+    allow_no_db = os.getenv("ALLOW_START_WITHOUT_DB", "false").lower() == "true"
+    if allow_no_db:
+        logger.error(
+            "⚠️  Database schema initialization failed, but ALLOW_START_WITHOUT_DB=true so startup will continue. "
+            "Most API routes will fail until the database is reachable.",
+            extra={"error": str(_schema_err)[:500]},
+        )
+    else:
+        logger.critical(
+            f"❌ FATAL: Database schema initialization failed — aborting startup.\n"
+            f"   Error: {_schema_err}\n"
+            f"   Fix DB_PASSWORD secret and CLOUD_SQL_CONNECTION_NAME then redeploy."
+        )
+        import sys
+        sys.exit(1)
 
 # Sync corpora from Vertex AI on startup
 def sync_corpora_on_startup():
@@ -299,6 +308,7 @@ if NEW_ROUTES_AVAILABLE:
     app.include_router(documents_router)
     app.include_router(chatbot_admin_router)
     app.include_router(google_groups_admin_router)
+    app.include_router(model_armor_router)
     print("🚀 API Routes Registered (IAP-only auth):")
     print("  ✅ /api/users/*       - User Management (profile, preferences)")
     print("  ✅ /api/agents/*      - Agent Management (switching, access)")
@@ -308,6 +318,7 @@ if NEW_ROUTES_AVAILABLE:
     print("  ✅ /api/documents/*   - Document Retrieval (view, access)")
     print("  ✅ /api/admin/chatbot/* - Chatbot User Management (separate access control)")
     print("  ✅ /api/admin/google-groups/* - Google Groups Bridge (mapping & sync)")
+    print("  ✅ /api/security/model-armor/* - Model Armor sanitization APIs")
     print("="*70 + "\n")
 else:
     print("⚠️  API routes not available")
@@ -640,6 +651,36 @@ async def chat_with_agent(session_id: str, chat_message: ChatMessage, current_us
     
     # Combine user context with the message
     full_message = user_context + chat_message.message
+
+    # Optional: sanitize user prompt with Model Armor (disabled by default)
+    if os.getenv("MODEL_ARMOR_CHAT_ENABLED", "false").lower() == "true":
+        try:
+            from services.model_armor_service import ModelArmorService
+            if ModelArmorService.is_enabled():
+                cfg = ModelArmorService.default_config()
+                if cfg.get("project_id") and cfg.get("location") and cfg.get("template_id"):
+                    sanitize_result = ModelArmorService.sanitize_user_prompt(
+                        text=full_message,
+                        project_id=cfg["project_id"],
+                        location=cfg["location"],
+                        template_id=cfg["template_id"],
+                    )
+                    match_state = (
+                        sanitize_result.get("sanitizationResult", {})
+                        .get("filterMatchState")
+                    )
+                    if match_state and match_state != "NO_MATCH_FOUND":
+                        raise HTTPException(
+                            status_code=status.HTTP_400_BAD_REQUEST,
+                            detail={
+                                "message": "Prompt blocked by Model Armor",
+                                "filterMatchState": match_state,
+                            },
+                        )
+        except HTTPException:
+            raise
+        except Exception as e:
+            logging.error(f"Model Armor prompt sanitization failed: {e}")
     
     try:
         # Get the agent for this session
@@ -729,6 +770,28 @@ async def chat_with_agent(session_id: str, chat_message: ChatMessage, current_us
                     # Not a rate limit error, re-raise immediately
                     raise
         
+        # Optional: sanitize model response with Model Armor (disabled by default)
+        if os.getenv("MODEL_ARMOR_CHAT_ENABLED", "false").lower() == "true":
+            try:
+                from services.model_armor_service import ModelArmorService
+                if ModelArmorService.is_enabled():
+                    cfg = ModelArmorService.default_config()
+                    if cfg.get("project_id") and cfg.get("location") and cfg.get("template_id"):
+                        sanitize_result = ModelArmorService.sanitize_model_response(
+                            text=response_text,
+                            project_id=cfg["project_id"],
+                            location=cfg["location"],
+                            template_id=cfg["template_id"],
+                        )
+                        match_state = (
+                            sanitize_result.get("sanitizationResult", {})
+                            .get("filterMatchState")
+                        )
+                        if match_state and match_state != "NO_MATCH_FOUND":
+                            response_text = "Response blocked by Model Armor."
+            except Exception as e:
+                logging.error(f"Model Armor response sanitization failed: {e}")
+
         # Store the agent response in chat history
         agent_message_entry = {
             "role": "assistant",
