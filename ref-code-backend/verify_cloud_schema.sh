@@ -15,7 +15,7 @@ echo "----------------------------------------------------------------"
 gcloud sql connect adk-multi-agents-db \
   --user=adk_app_user \
   --database=adk_agents_db \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet <<'EOF'
 
 -- Check if schema_migrations table exists

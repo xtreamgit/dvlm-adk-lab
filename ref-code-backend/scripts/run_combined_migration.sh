@@ -6,7 +6,7 @@ echo "🔧 Running Combined Migration on Cloud SQL"
 echo "=============================================="
 echo ""
 
-PROJECT="adk-rag-ma"
+PROJECT="dvlm-adk-lab"
 INSTANCE="adk-multi-agents-db"
 DATABASE="adk_agents_db"
 MIGRATION_FILE="./scripts/combined_migration.sql"

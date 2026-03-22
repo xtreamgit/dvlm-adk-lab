@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv('.env.local')
 
 # Cloud SQL connection parameters
-DB_HOST = os.getenv('DB_HOST', '/cloudsql/adk-rag-ma:us-west1:adk-multi-agents-db')
+DB_HOST = os.getenv('DB_HOST', '/cloudsql/dvlm-adk-lab:us-west1:adk-multi-agents-db')
 DB_NAME = os.getenv('DB_NAME', 'adk_agents_db')
 DB_USER = os.getenv('DB_USER', 'postgres')
 DB_PASSWORD = os.getenv('DB_PASSWORD', '')

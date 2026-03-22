@@ -9,7 +9,7 @@ import subprocess
 import tempfile
 
 # Configuration
-PROJECT = "adk-rag-ma"
+PROJECT = "dvlm-adk-lab"
 INSTANCE = "adk-multi-agents-db"
 DATABASE = "adk_agents_db"
 USER = "adk_app_user"

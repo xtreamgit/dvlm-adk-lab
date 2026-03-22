@@ -52,7 +52,7 @@ CLOUD_HOST="${CLOUD_DB_HOST:-127.0.0.1}"  # Via Cloud SQL Proxy
 CLOUD_PORT="${CLOUD_DB_PORT:-5432}"
 CLOUD_DB="adk_agents_db"
 CLOUD_USER="adk_app_user"
-PROJECT_ID="adk-rag-ma"
+PROJECT_ID="dvlm-adk-lab"
 CLOUD_SQL_INSTANCE="adk-multi-agents-db"
 
 # Create backup directory

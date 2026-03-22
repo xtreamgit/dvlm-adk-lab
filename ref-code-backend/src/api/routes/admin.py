@@ -6,6 +6,7 @@ Requires admin permissions.
 import logging
 from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Depends, Query, status, Request
+import os
 
 from middleware.iap_auth_middleware import get_current_user_iap as get_current_user_hybrid
 from models.user import User
@@ -372,6 +373,81 @@ async def trigger_corpus_sync(
         raise
     except Exception as e:
         logger.error(f"Failed to sync corpora: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/corpora/bootstrap-vertex")
+async def bootstrap_vertex_corpus(
+    current_user: User = Depends(require_admin),
+):
+    try:
+        from config.config_loader import load_config
+        import google.auth
+        import vertexai
+        from vertexai import rag
+
+        account = os.getenv("ACCOUNT_ENV", "develom")
+        config = load_config(account)
+        project_id = config.PROJECT_ID
+        location = config.LOCATION
+
+        corpus_display_name = "adk-rag-default-corpus-dvlm-adk-lab"
+        gcs_prefix = "gs://adk-rag-default-corpus-bucket-dvlm-adk-lab/documents"
+        embedding_model = "publishers/google/models/text-embedding-005"
+
+        credentials, adc_project = google.auth.default()
+        vertexai.init(project=project_id, location=location, credentials=credentials)
+
+        existing = None
+        for c in rag.list_corpora():
+            if getattr(c, "display_name", None) == corpus_display_name:
+                existing = c
+                break
+
+        created = False
+        corpus = existing
+        if corpus is None:
+            embedding_model_config = rag.RagEmbeddingModelConfig(
+                vertex_prediction_endpoint=rag.VertexPredictionEndpoint(
+                    publisher_model=embedding_model,
+                ),
+            )
+
+            corpus = rag.create_corpus(
+                display_name=corpus_display_name,
+                backend_config=rag.RagVectorDbConfig(
+                    rag_embedding_model_config=embedding_model_config,
+                ),
+            )
+            created = True
+
+        transformation_config = rag.TransformationConfig(
+            chunking_config=rag.ChunkingConfig(
+                chunk_size=512,
+                chunk_overlap=100,
+            ),
+        )
+
+        import_result = rag.import_files(
+            corpus.name,
+            [gcs_prefix],
+            transformation_config=transformation_config,
+            max_embedding_requests_per_min=1000,
+        )
+
+        return {
+            "status": "success",
+            "effective_project_id": project_id,
+            "effective_location": location,
+            "adc_project": adc_project,
+            "corpus_display_name": corpus.display_name,
+            "corpus_resource_name": corpus.name,
+            "corpus_created": created,
+            "gcs_prefix": gcs_prefix,
+            "imported_rag_files_count": getattr(import_result, "imported_rag_files_count", None),
+        }
+    except Exception as e:
+        logger.error(f"Failed to bootstrap Vertex corpus: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

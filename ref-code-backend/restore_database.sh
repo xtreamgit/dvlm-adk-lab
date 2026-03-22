@@ -47,7 +47,7 @@ CLOUD_HOST="127.0.0.1"
 CLOUD_PORT="5432"
 CLOUD_DB="adk_agents_db"
 CLOUD_USER="adk_app_user"
-PROJECT_ID="adk-rag-ma"
+PROJECT_ID="dvlm-adk-lab"
 
 restore_local() {
     local backup_file="$1"

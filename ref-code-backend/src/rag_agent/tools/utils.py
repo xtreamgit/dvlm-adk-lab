@@ -158,6 +158,9 @@ def check_corpus_exists(corpus_name: str, tool_context: ToolContext) -> bool:
         bool: True if the corpus exists, False otherwise
     """
     account_env = os.environ.get("ACCOUNT_ENV", "unknown")
+
+    if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() != "true":
+        return check_user_corpus_access(corpus_name, tool_context)
     
     # Check state first if tool_context is provided
     if tool_context.state.get(f"corpus_exists_{corpus_name}"):

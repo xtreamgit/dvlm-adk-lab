@@ -1,7 +1,7 @@
 """
 Configuration settings for the RAG Agent - DEVELOM Account
 Account: develom (root repository)
-Project: adk-rag-ma
+Project: dvlm-adk-lab
 Region: us-west1
 
 These settings are used by the various RAG tools.
@@ -15,7 +15,7 @@ ACCOUNT_NAME = "develom"
 ACCOUNT_DESCRIPTION = "Develom Root Repository Account"
 
 # Vertex AI settings
-PROJECT_ID = os.environ.get("PROJECT_ID", "adk-rag-ma")
+PROJECT_ID = os.environ.get("PROJECT_ID", "dvlm-adk-lab")
 LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "us-west1")
 
 # RAG settings

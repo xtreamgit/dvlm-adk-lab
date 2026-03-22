@@ -31,6 +31,72 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/admin/chatbot", tags=["Chatbot Admin"])
 
 
+@router.get("/debug/user-link")
+async def debug_user_link(current_user = Depends(get_current_user)):
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT id, username, email, user_id, created_by FROM chatbot_users WHERE user_id = %s",
+                (current_user.id,),
+            )
+            linked_by_user_id = cur.fetchone()
+
+            cur.execute(
+                "SELECT id, username, email, user_id, created_by FROM chatbot_users WHERE email = %s",
+                (current_user.email,),
+            )
+            linked_by_email = cur.fetchone()
+
+            chatbot_user_id = None
+            if linked_by_user_id:
+                chatbot_user_id = linked_by_user_id["id"]
+            elif linked_by_email:
+                chatbot_user_id = linked_by_email["id"]
+
+            groups = []
+            if chatbot_user_id:
+                cur.execute(
+                    """
+                    SELECT cg.id, cg.name
+                    FROM chatbot_groups cg
+                    JOIN chatbot_user_groups cug ON cg.id = cug.chatbot_group_id
+                    WHERE cug.chatbot_user_id = %s
+                    ORDER BY cg.name
+                    """,
+                    (chatbot_user_id,),
+                )
+                groups = [dict(r) for r in cur.fetchall()]
+
+            accessible_corpora = []
+            if chatbot_user_id:
+                cur.execute(
+                    """
+                    SELECT DISTINCT c.id, c.name, cca.permission
+                    FROM corpora c
+                    JOIN chatbot_corpus_access cca ON c.id = cca.corpus_id
+                    JOIN chatbot_user_groups cug ON cca.chatbot_group_id = cug.chatbot_group_id
+                    WHERE cug.chatbot_user_id = %s
+                      AND c.is_active = TRUE
+                    ORDER BY c.name
+                    """,
+                    (chatbot_user_id,),
+                )
+                accessible_corpora = [dict(r) for r in cur.fetchall()]
+
+            return {
+                "current_user": {
+                    "id": current_user.id,
+                    "email": current_user.email,
+                },
+                "chatbot_users": {
+                    "linked_by_user_id": dict(linked_by_user_id) if linked_by_user_id else None,
+                    "linked_by_email": dict(linked_by_email) if linked_by_email else None,
+                },
+                "groups": groups,
+                "accessible_corpora": accessible_corpora,
+            }
+
+
 # ============================================================================
 # Pydantic Models
 # ============================================================================

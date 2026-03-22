@@ -218,6 +218,10 @@ effective_location = os.getenv("GOOGLE_CLOUD_LOCATION") or config.LOCATION
 # Populate env only if missing (do not override)
 os.environ.setdefault("PROJECT_ID", effective_project)
 os.environ.setdefault("GOOGLE_CLOUD_LOCATION", effective_location)
+os.environ.setdefault("GOOGLE_CLOUD_PROJECT", effective_project)
+os.environ.setdefault("GCLOUD_PROJECT", effective_project)
+os.environ.setdefault("VERTEXAI_PROJECT", effective_project)
+os.environ.setdefault("VERTEXAI_LOCATION", effective_location)
 
 print(f"📋 Config resolved: PROJECT_ID={effective_project}, LOCATION={effective_location}")
 
@@ -604,21 +608,30 @@ async def chat_with_agent(session_id: str, chat_message: ChatMessage, current_us
     # ========== Corpus Access Validation ==========
     # Validate that the user has access to the requested corpora (server-side enforcement)
     from database.repositories.corpus_repository import CorpusRepository
+    from services.session_service import SessionService
     
     requested_corpora = chat_message.corpora or []
     logging.info(f"[CORPUS] Received corpora from frontend: {requested_corpora}")
-    
+
+    # Get the user's accessible corpora rows from the database
+    user_id = current_user.id
+    accessible_corpora_rows = CorpusRepository.get_user_corpora(user_id, active_only=True)
+
+    accessible_corpus_names = {row['name'] for row in accessible_corpora_rows}
+    accessible_by_id = {row['id']: row['name'] for row in accessible_corpora_rows}
+
+    # If frontend did not explicitly send corpora, fall back to session active corpora (IDs)
+    if not requested_corpora:
+        active_ids = SessionService.get_active_corpora(session_id)
+        requested_corpora = [accessible_by_id[cid] for cid in active_ids if cid in accessible_by_id]
+        logging.info(f"[CORPUS] Using session active corpora ids={active_ids} resolved={requested_corpora}")
+
     # Require at least one corpus to be selected
     if not requested_corpora:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Please select at least one corpus before sending a message."
         )
-    
-    # Get the user's accessible corpora names from the database
-    user_id = current_user.id
-    accessible_corpora_rows = CorpusRepository.get_user_corpora(user_id, active_only=True)
-    accessible_corpus_names = {row['name'] for row in accessible_corpora_rows}
     
     # Filter requested corpora to only those the user has access to
     validated_corpora = [c for c in requested_corpora if c in accessible_corpus_names]
@@ -641,13 +654,15 @@ async def chat_with_agent(session_id: str, chat_message: ChatMessage, current_us
     # Build corpus instruction for the LLM using only validated corpora
     corpus_list = ", ".join(validated_corpora)
     logging.info(f"[CORPUS] User {current_user.email} querying {len(validated_corpora)} validated corpora: {corpus_list}")
-    user_context += f"\n{'='*80}\n"
-    user_context += f"CRITICAL INSTRUCTION - READ THIS CAREFULLY:\n"
-    user_context += f"The user has selected {len(validated_corpora)} corpora: {corpus_list}\n"
-    user_context += f"You MUST use rag_multi_query with corpus_names={validated_corpora}\n"
-    user_context += f"DO NOT use rag_query. DO NOT search only 'ai-books'.\n"
-    user_context += f"Search ALL {len(validated_corpora)} corpora simultaneously.\n"
-    user_context += f"{'='*80}\n\n"
+
+    if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() == "true":
+        user_context += f"\n{'='*80}\n"
+        user_context += f"CRITICAL INSTRUCTION - READ THIS CAREFULLY:\n"
+        user_context += f"The user has selected {len(validated_corpora)} corpora: {corpus_list}\n"
+        user_context += f"You MUST use rag_multi_query with corpus_names={validated_corpora}\n"
+        user_context += f"DO NOT use rag_query. DO NOT search only 'ai-books'.\n"
+        user_context += f"Search ALL {len(validated_corpora)} corpora simultaneously.\n"
+        user_context += f"{'='*80}\n\n"
     
     # Combine user context with the message
     full_message = user_context + chat_message.message

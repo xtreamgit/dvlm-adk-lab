@@ -48,7 +48,7 @@ def retrieve_document(
             "corpus_name": "ai-books",
             "document_name": "Python Hacking.pdf",
             "file_id": "1234567890",
-            "source_uri": "gs://adk-rag-ma-ai-books/documents/python-hacking.pdf",
+            "source_uri": "gs://dvlm-adk-lab-ai-books/documents/python-hacking.pdf",
             "file_type": "pdf"
         }
     """

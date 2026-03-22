@@ -8,7 +8,7 @@ Vertex AI initialization is performed in the package's __init__.py
 import os
 
 # Vertex AI settings
-PROJECT_ID = os.environ.get("PROJECT_ID", "adk-rag-ma")
+PROJECT_ID = os.environ.get("PROJECT_ID", "dvlm-adk-lab")
 LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "us-west1")
 
 # RAG settings

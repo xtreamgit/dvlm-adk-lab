@@ -5,7 +5,7 @@
 #
 # Usage: ./deploy_iap.sh [options]
 # Options:
-#   --project PROJECT_ID      GCP project ID (default: adk-rag-ma)
+#   --project PROJECT_ID      GCP project ID (default: dvlm-adk-lab)
 #   --region REGION           GCP region (default: us-west1)
 #   --service SERVICE_NAME    Cloud Run service name (default: backend)
 #   --dry-run                 Validate configuration without deploying
@@ -23,7 +23,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Default configuration
-PROJECT_ID="${PROJECT_ID:-adk-rag-ma}"
+PROJECT_ID="${PROJECT_ID:-dvlm-adk-lab}"
 REGION="${REGION:-us-west1}"
 SERVICE_NAME="${SERVICE_NAME:-backend}"
 DRY_RUN=false
@@ -60,7 +60,7 @@ while [[ $# -gt 0 ]]; do
         -h|--help)
             echo "Usage: $0 [options]"
             echo "Options:"
-            echo "  --project PROJECT_ID      GCP project ID (default: adk-rag-ma)"
+            echo "  --project PROJECT_ID      GCP project ID (default: dvlm-adk-lab)"
             echo "  --region REGION           GCP region (default: us-west1)"
             echo "  --service SERVICE_NAME    Cloud Run service name (default: backend)"
             echo "  --dry-run                 Validate configuration without deploying"

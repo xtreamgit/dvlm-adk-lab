@@ -6,7 +6,7 @@ echo "Verifying Migrations 004 and 005 Completeness"
 echo "============================================================================"
 echo ""
 
-cat <<'EOF' | gcloud sql connect adk-multi-agents-db --user=adk_app_user --database=adk_agents_db --project=adk-rag-ma --quiet
+cat <<'EOF' | gcloud sql connect adk-multi-agents-db --user=adk_app_user --database=adk_agents_db --project=dvlm-adk-lab --quiet
 
 -- 1. Check if columns exist
 SELECT 

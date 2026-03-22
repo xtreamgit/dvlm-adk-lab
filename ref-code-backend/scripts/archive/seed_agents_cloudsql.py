@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import os
 
 # Cloud SQL connection settings
-CLOUD_SQL_CONNECTION_NAME = "adk-rag-ma:us-west1:adk-multi-agents-db"
+CLOUD_SQL_CONNECTION_NAME = "dvlm-adk-lab:us-west1:adk-multi-agents-db"
 DB_USER = "adk_app_user"
 DB_NAME = "adk_agents_db"
 DB_PASSWORD = "YSdozFP2TnDM20mfwRRiQYIqGNZw7T/6WrSd+knD2aM="

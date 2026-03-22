@@ -6,7 +6,7 @@ echo "Checking user_sessions table ownership..."
 gcloud sql connect adk-multi-agents-db \
   --user=postgres \
   --database=adk_agents_db \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet <<'EOF'
 SELECT 
     t.table_name,

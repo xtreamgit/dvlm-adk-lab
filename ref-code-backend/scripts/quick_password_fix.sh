@@ -12,7 +12,7 @@ echo "Updating Cloud SQL..."
 gcloud sql connect adk-multi-agents-db \
   --database=adk_agents_db \
   --user=postgres \
-  --project=adk-rag-ma <<EOF
+  --project=dvlm-adk-lab <<EOF
 UPDATE users SET hashed_password = '$HASH' WHERE username = 'alice';
 SELECT username, email, is_active, LEFT(hashed_password, 30) as pwd_hash FROM users WHERE username = 'alice';
 EOF

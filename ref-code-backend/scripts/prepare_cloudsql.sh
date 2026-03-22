@@ -2,11 +2,11 @@
 # Prepare Cloud SQL database for migration
 set -e
 
-echo "🔧 Preparing Cloud SQL Database for Migration"
+echo " Preparing Cloud SQL Database for Migration"
 echo "=============================================="
 echo ""
 
-PROJECT="adk-rag-ma"
+PROJECT="dvlm-adk-lab"
 INSTANCE="adk-multi-agents-db"
 DATABASE="adk_agents_db"
 

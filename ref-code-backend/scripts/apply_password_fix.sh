@@ -14,7 +14,7 @@ echo ""
 gcloud sql connect adk-multi-agents-db \
   --database=adk_agents_db \
   --user=adk_app_user \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet <<EOF
 UPDATE users SET hashed_password = '$HASH' WHERE username = 'alice';
 SELECT username, email, is_active FROM users WHERE username = 'alice';

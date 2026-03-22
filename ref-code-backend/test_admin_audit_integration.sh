@@ -83,7 +83,7 @@ echo "--------------------------------------------------------------"
 
 FRONTEND_REVISION=$(gcloud run services describe frontend \
   --region=us-west1 \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --format="value(status.latestReadyRevisionName)")
 
 echo "Current frontend revision: $FRONTEND_REVISION"
@@ -100,7 +100,7 @@ echo "--------------------------------------------------------------"
 
 ERROR_COUNT=$(gcloud logging read \
   "resource.labels.service_name=\"frontend\" AND resource.labels.revision_name=\"$FRONTEND_REVISION\" AND severity>=ERROR" \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --limit=5 \
   --format=json 2>/dev/null | python3 -c "import sys, json; print(len(json.load(sys.stdin)))")
 
@@ -111,7 +111,7 @@ else
   echo "Recent errors:"
   gcloud logging read \
     "resource.labels.service_name=\"frontend\" AND resource.labels.revision_name=\"$FRONTEND_REVISION\" AND severity>=ERROR" \
-    --project=adk-rag-ma \
+    --project=dvlm-adk-lab \
     --limit=3 \
     --format="value(textPayload)" 2>/dev/null | head -10
 fi

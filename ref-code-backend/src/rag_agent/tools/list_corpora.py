@@ -15,15 +15,16 @@ from .utils import check_user_corpus_access
 logger = logging.getLogger(__name__)
 
 # Ensure vertexai is initialized for this module
-try:
-    import google.auth
-    credentials, _ = google.auth.default()
-    vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
-    print(f"DEBUG: Initialized vertexai in list_corpora with project={PROJECT_ID}, location={LOCATION}")
-except Exception as e:
-    print(f"DEBUG: Failed to initialize vertexai in list_corpora: {e}")
-    import traceback
-    print(f"DEBUG: Traceback: {traceback.format_exc()}")
+if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() == "true":
+    try:
+        import google.auth
+        credentials, _ = google.auth.default()
+        vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
+        print(f"DEBUG: Initialized vertexai in list_corpora with project={PROJECT_ID}, location={LOCATION}")
+    except Exception as e:
+        print(f"DEBUG: Failed to initialize vertexai in list_corpora: {e}")
+        import traceback
+        print(f"DEBUG: Traceback: {traceback.format_exc()}")
 
 
 def list_corpora(tool_context: ToolContext) -> dict:
@@ -42,6 +43,52 @@ def list_corpora(tool_context: ToolContext) -> dict:
     
     try:
         logger.info(f"[{account_env}] Listing all corpora", extra={"agent": account_env, "action": "list_corpora"})
+
+        if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() != "true":
+            logger.debug(
+                f"[{account_env}] list_corpora state debug: keys={list(tool_context.state.keys())}, "
+                f"user_id={tool_context.state.get('user_id')}, "
+                f"accessible_corpus_names={tool_context.state.get('accessible_corpus_names')}",
+                extra={"agent": account_env},
+            )
+            user_id = tool_context.state.get("user_id")
+            accessible = None
+            if user_id is not None:
+                try:
+                    from database.repositories.corpus_repository import CorpusRepository
+
+                    accessible_rows = CorpusRepository.get_user_corpora(int(user_id), active_only=True)
+                    accessible = [row["name"] for row in accessible_rows]
+                except Exception as e:
+                    logger.warning(
+                        f"[{account_env}] Failed to fetch accessible corpora from DB in list_corpora: {e}",
+                        extra={"agent": account_env},
+                    )
+
+            if accessible is None:
+                accessible = tool_context.state.get("accessible_corpus_names")
+
+            if accessible is None:
+                accessible = []
+            corpus_info = [
+                {
+                    "resource_name": name,
+                    "display_name": name,
+                    "create_time": "",
+                    "update_time": "",
+                }
+                for name in accessible
+            ]
+            logger.info(
+                f"[{account_env}] Found {len(corpus_info)} accessible corpora (db-backed)",
+                extra={"agent": account_env, "count": len(corpus_info)},
+            )
+            return {
+                "status": "success",
+                "message": f"Found {len(corpus_info)} available corpora",
+                "corpora": corpus_info,
+            }
+
         # Get the list of corpora
         corpora = rag.list_corpora()
 

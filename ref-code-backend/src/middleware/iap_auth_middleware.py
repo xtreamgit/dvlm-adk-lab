@@ -28,6 +28,7 @@ IAP_ID_HEADER = "X-Goog-Authenticated-User-ID"
 # Local development mode: bypass IAP JWT verification
 IAP_DEV_MODE = os.getenv("IAP_DEV_MODE", "false").lower() == "true"
 IAP_DEV_USER_EMAIL = os.getenv("IAP_DEV_USER_EMAIL", "dev@develom.com")
+IAP_DEV_USER_GOOGLE_ID = os.getenv("IAP_DEV_USER_GOOGLE_ID")
 
 # Allow direct API access mode: for when backend is accessed directly (not through IAP)
 # but frontend is IAP-protected. Backend will accept requests without IAP headers.
@@ -48,16 +49,36 @@ async def _get_or_create_dev_user() -> User:
     """
     allow_no_db = os.getenv("ALLOW_START_WITHOUT_DB", "false").lower() == "true"
     try:
+        dev_google_id = IAP_DEV_USER_GOOGLE_ID or f"dev-mode:{IAP_DEV_USER_EMAIL}"
+
+        user = UserService.get_user_by_google_id(dev_google_id)
+        if user:
+            UserService.update_last_login(user.id)
+            UserService.ensure_chatbot_user(
+                user.id,
+                user.email,
+                user.full_name,
+            )
+            return user
+
         user = UserService.get_user_by_email(IAP_DEV_USER_EMAIL)
         if not user:
             user = UserService.create_user_from_iap(
                 email=IAP_DEV_USER_EMAIL,
-                google_id="dev-mode-id",
+                google_id=dev_google_id,
                 full_name=IAP_DEV_USER_EMAIL.split("@")[0].replace(".", " ").title()
             )
             logger.info(f"Dev mode: created user for {IAP_DEV_USER_EMAIL}")
         else:
+            if not user.google_id:
+                UserService.update_google_id(user.id, dev_google_id)
             UserService.update_last_login(user.id)
+
+        UserService.ensure_chatbot_user(
+            user.id,
+            user.email,
+            user.full_name,
+        )
         return user
     except Exception as e:
         if not allow_no_db:
@@ -73,7 +94,7 @@ async def _get_or_create_dev_user() -> User:
             full_name=IAP_DEV_USER_EMAIL.split("@")[0].replace(".", " ").title(),
             is_active=True,
             default_agent_id=None,
-            google_id="dev-mode-id",
+            google_id=IAP_DEV_USER_GOOGLE_ID or f"dev-mode:{IAP_DEV_USER_EMAIL}",
             created_at=now,
             updated_at=now,
             last_login=now,

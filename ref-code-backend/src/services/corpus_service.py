@@ -12,28 +12,35 @@ from models.corpus import Corpus, CorpusCreate, CorpusUpdate, CorpusWithAccess
 logger = logging.getLogger(__name__)
 
 # Import Vertex AI for document count retrieval
-try:
-    import vertexai
-    from vertexai import rag
-    import google.auth
-    
-    # Get project and location from config
-    from config.config_loader import load_config
-    account = os.getenv('ACCOUNT_ENV', 'develom')
-    config = load_config(account)
-    PROJECT_ID = config.PROJECT_ID
-    LOCATION = config.LOCATION
-    
-    credentials, _ = google.auth.default()
-    vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
-    VERTEX_AI_AVAILABLE = True
-except Exception as e:
-    logger.warning(f"Vertex AI not available for document counts: {e}")
-    VERTEX_AI_AVAILABLE = False
+VERTEX_AI_AVAILABLE = False
+if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() == "true":
+    try:
+        import vertexai
+        from vertexai import rag
+        import google.auth
+        
+        # Get project and location from config
+        from config.config_loader import load_config
+        account = os.getenv('ACCOUNT_ENV', 'develom')
+        config = load_config(account)
+        PROJECT_ID = config.PROJECT_ID
+        LOCATION = config.LOCATION
+        
+        credentials, _ = google.auth.default()
+        vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
+        VERTEX_AI_AVAILABLE = True
+    except Exception as e:
+        logger.warning(f"Vertex AI not available for document counts: {e}")
 
 
 class CorpusService:
     """Service for corpus operations."""
+
+    @staticmethod
+    def _should_validate_with_vertex(validate_with_vertex: bool) -> bool:
+        if not validate_with_vertex:
+            return False
+        return os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() == "true"
     
     @staticmethod
     def _get_document_count(corpus_name: str, vertex_corpus_id: Optional[str] = None) -> int:
@@ -192,7 +199,7 @@ class CorpusService:
         corpora_dict = CorpusRepository.get_user_corpora(user_id, active_only=active_only)
         
         # Validate against Vertex AI if requested
-        if validate_with_vertex and VERTEX_AI_AVAILABLE:
+        if CorpusService._should_validate_with_vertex(validate_with_vertex) and VERTEX_AI_AVAILABLE:
             try:
                 # Fetch corpus names from Vertex AI
                 vertex_corpora = list(rag.list_corpora())
@@ -255,7 +262,7 @@ class CorpusService:
         all_corpora_dict = CorpusRepository.get_all(active_only=active_only)
         
         # Validate against Vertex AI if requested
-        if validate_with_vertex and VERTEX_AI_AVAILABLE:
+        if CorpusService._should_validate_with_vertex(validate_with_vertex) and VERTEX_AI_AVAILABLE:
             try:
                 vertex_corpora = list(rag.list_corpora())
                 # Use corpus.display_name from Vertex AI (which matches our 'name' field in DB)

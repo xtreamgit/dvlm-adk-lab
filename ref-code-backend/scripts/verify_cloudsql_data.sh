@@ -8,7 +8,7 @@ echo ""
 gcloud sql connect adk-multi-agents-db \
   --database=adk_agents_db \
   --user=adk_app_user \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet <<'EOF'
 SELECT 'Total Users:' as info, COUNT(*) as count FROM users;
 SELECT 'Alice user:' as info, username, email, is_active FROM users WHERE username='alice';

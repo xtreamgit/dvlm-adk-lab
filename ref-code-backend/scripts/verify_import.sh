@@ -7,7 +7,7 @@ echo ""
 gcloud sql connect adk-multi-agents-db \
   --database=adk_agents_db \
   --user=adk_app_user \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet <<'EOF'
 SELECT 'Users:' as table_name, COUNT(*) as row_count FROM users
 UNION ALL

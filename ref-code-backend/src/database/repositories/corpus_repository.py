@@ -91,8 +91,10 @@ class CorpusRepository:
             with get_db_connection() as conn:
                 cursor = conn.cursor()
                 cursor.execute("""
-                    INSERT INTO group_corpus_access (group_id, corpus_id, permission)
+                    INSERT INTO chatbot_corpus_access (chatbot_group_id, corpus_id, permission)
                     VALUES (%s, %s, %s)
+                    ON CONFLICT (chatbot_group_id, corpus_id)
+                    DO UPDATE SET permission = EXCLUDED.permission, granted_at = CURRENT_TIMESTAMP
                 """, (group_id, corpus_id, permission))
                 conn.commit()
             return True
@@ -105,7 +107,7 @@ class CorpusRepository:
         with get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
-                DELETE FROM group_corpus_access WHERE group_id = %s AND corpus_id = %s
+                DELETE FROM chatbot_corpus_access WHERE chatbot_group_id = %s AND corpus_id = %s
             """, (group_id, corpus_id))
             conn.commit()
             return cursor.rowcount > 0
@@ -116,9 +118,9 @@ class CorpusRepository:
         with get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
-                SELECT gca.group_id, gca.permission, gca.granted_at
-                FROM group_corpus_access gca
-                WHERE gca.corpus_id = %s
+                SELECT cca.chatbot_group_id as group_id, cca.permission, cca.granted_at
+                FROM chatbot_corpus_access cca
+                WHERE cca.corpus_id = %s
             """, (corpus_id,))
             return [dict(row) for row in cursor.fetchall()]
     

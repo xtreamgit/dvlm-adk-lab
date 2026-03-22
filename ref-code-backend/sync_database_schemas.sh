@@ -16,9 +16,9 @@ NC='\033[0m' # No Color
 BOLD='\033[1m'
 
 # Configuration
-PROJECT_ID="adk-rag-ma"
+PROJECT_ID="dvlm-adk-lab"
 CLOUD_SQL_INSTANCE="adk-multi-agents-db"
-CLOUD_SQL_CONNECTION="adk-rag-ma:us-west1:adk-multi-agents-db"
+CLOUD_SQL_CONNECTION="dvlm-adk-lab:us-west1:adk-multi-agents-db"
 DATABASE_NAME="adk_agents_db"
 CLOUD_USER="adk_app_user"
 

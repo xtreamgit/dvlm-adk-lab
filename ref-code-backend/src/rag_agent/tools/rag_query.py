@@ -10,15 +10,17 @@ from vertexai import rag
 from ..config import PROJECT_ID, LOCATION
 
 # Ensure vertexai is initialized for this module
-try:
-    import google.auth
-    credentials, _ = google.auth.default()
-    vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
-    print(f"DEBUG: Initialized vertexai in rag_query with project={PROJECT_ID}, location={LOCATION}")
-except Exception as e:
-    print(f"DEBUG: Failed to initialize vertexai in rag_query: {e}")
-    import traceback
-    print(f"DEBUG: Traceback: {traceback.format_exc()}")
+import os
+if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() == "true":
+    try:
+        import google.auth
+        credentials, _ = google.auth.default()
+        vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
+        print(f"DEBUG: Initialized vertexai in rag_query with project={PROJECT_ID}, location={LOCATION}")
+    except Exception as e:
+        print(f"DEBUG: Failed to initialize vertexai in rag_query: {e}")
+        import traceback
+        print(f"DEBUG: Traceback: {traceback.format_exc()}")
 
 from ..config import (
     DEFAULT_DISTANCE_THRESHOLD,

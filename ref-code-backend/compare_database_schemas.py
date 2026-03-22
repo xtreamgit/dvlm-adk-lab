@@ -47,7 +47,7 @@ def get_cloud_connection():
     
     Set CLOUD_DB_HOST environment variable to override default.
     """
-    cloud_host = os.getenv('CLOUD_DB_HOST', '/cloudsql/adk-rag-ma:us-west1:adk-multi-agents-db')
+    cloud_host = os.getenv('CLOUD_DB_HOST', '/cloudsql/dvlm-adk-lab:us-west1:adk-multi-agents-db')
     
     return psycopg2.connect(
         host=cloud_host,

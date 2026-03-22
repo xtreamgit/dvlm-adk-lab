@@ -21,7 +21,7 @@ cd backend
 
 ```bash
 gcloud auth login
-gcloud config set project adk-rag-ma
+gcloud config set project dvlm-adk-lab
 ```
 
 ### 3. Enable Required APIs
@@ -42,11 +42,11 @@ gcloud services enable \
 ```
 
 This will:
-1. ✅ Validate prerequisites
-2. ✅ Retrieve IAP configuration (PROJECT_NUMBER, BACKEND_SERVICE_ID)
-3. ✅ Run database migration (006_add_iap_support.sql)
-4. ✅ Deploy to Cloud Run with IAP environment variables
-5. ✅ Run post-deployment tests
+1. Validate prerequisites
+2. Retrieve IAP configuration (PROJECT_NUMBER, BACKEND_SERVICE_ID)
+3. Run database migration (006_add_iap_support.sql)
+4. Deploy to Cloud Run with IAP environment variables
+5. Run post-deployment tests
 
 ### Advanced Options
 
@@ -55,7 +55,7 @@ This will:
 ./deploy_iap.sh --dry-run
 
 # Deploy to different project/region
-./deploy_iap.sh --project my-project --region us-central1
+./deploy_iap.sh --project dvlm-adk-lab --region us-central1
 
 # Skip database migration (if already run)
 ./deploy_iap.sh --skip-migration
@@ -67,7 +67,7 @@ This will:
 ./deploy_iap.sh --service backend-production
 
 # Combine options
-./deploy_iap.sh --project adk-rag-ma --region us-west1 --dry-run
+./deploy_iap.sh --project dvlm-adk-lab --region us-west1 --dry-run
 ```
 
 ### Help
@@ -84,7 +84,7 @@ If you prefer to deploy manually or the script fails:
 
 ```bash
 # Get project number
-PROJECT_NUMBER=$(gcloud projects describe adk-rag-ma --format="value(projectNumber)")
+PROJECT_NUMBER=$(gcloud projects describe dvlm-adk-lab --format="value(projectNumber)")
 echo "Project Number: $PROJECT_NUMBER"
 
 # List backend services
@@ -132,7 +132,7 @@ curl $SERVICE_URL/api/iap/status
 
 | Variable | Description | How to Get |
 |----------|-------------|------------|
-| `PROJECT_NUMBER` | GCP project numeric ID | `gcloud projects describe adk-rag-ma --format="value(projectNumber)"` |
+| `PROJECT_NUMBER` | GCP project numeric ID | `gcloud projects describe dvlm-adk-lab --format="value(projectNumber)"` |
 | `BACKEND_SERVICE_ID` | Backend service ID from Load Balancer | `gcloud compute backend-services describe <name> --global --format="value(id)"` |
 
 ### Optional
@@ -408,19 +408,19 @@ gcloud alpha monitoring policies create \
 ### Development
 
 ```bash
-./deploy_iap.sh --project adk-rag-ma-dev --service backend-dev --region us-west1
+./deploy_iap.sh --project dvlm-adk-lab-dev --service backend-dev --region us-west1
 ```
 
 ### Staging
 
 ```bash
-./deploy_iap.sh --project adk-rag-ma-staging --service backend-staging --region us-west1
+./deploy_iap.sh --project dvlm-adk-lab-staging --service backend-staging --region us-west1
 ```
 
 ### Production
 
 ```bash
-./deploy_iap.sh --project adk-rag-ma --service backend --region us-west1
+./deploy_iap.sh --project dvlm-adk-lab --service backend --region us-west1
 ```
 
 ## CI/CD Integration
@@ -445,7 +445,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0
         with:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
-          project_id: adk-rag-ma
+          project_id: dvlm-adk-lab
       
       - name: Run tests
         run: |

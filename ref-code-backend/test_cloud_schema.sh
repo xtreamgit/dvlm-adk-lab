@@ -14,7 +14,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 BOLD='\033[1m'
 
-PROJECT_ID="adk-rag-ma"
+PROJECT_ID="dvlm-adk-lab"
 INSTANCE="adk-multi-agents-db"
 DATABASE="adk_agents_db"
 USER="adk_app_user"

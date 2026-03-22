@@ -14,7 +14,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 BOLD='\033[1m'
 
-PROJECT_ID="adk-rag-ma"
+PROJECT_ID="dvlm-adk-lab"
 BACKEND_URL="https://backend-351592762922.us-west1.run.app"
 
 echo -e "${BLUE}${BOLD}================================================================${NC}"

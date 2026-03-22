@@ -26,7 +26,7 @@ EOF
 echo "$SQL_COMMANDS" | gcloud sql connect adk-multi-agents-db \
   --user=postgres \
   --database=adk_agents_db \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet
 
 echo ""

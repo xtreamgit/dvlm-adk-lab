@@ -144,7 +144,7 @@ def sync_corpora_from_vertex_ai():
                 CorpusRepository.create(
                     name=corpus_name,
                     display_name=corpus_name,
-                    gcs_bucket=f"gs://adk-rag-ma-{corpus_name}",
+                    gcs_bucket=f"gs://dvlm-adk-lab-{corpus_name}",
                     description=f"Synced from Vertex AI",
                     vertex_corpus_id=vertex_corpus.name
                 )

@@ -11,6 +11,17 @@ from ..connection import get_db_connection
 
 class UserRepository:
     """Repository for user-related database operations."""
+
+    @staticmethod
+    def _derive_username_from_email(email: str) -> str:
+        """Derive a stable username from an email for legacy schemas.
+
+        Some older PostgreSQL schemas still include a NOT NULL `username` column.
+        """
+        if not email:
+            return "user"
+        local = email.split("@", 1)[0].strip()
+        return local or "user"
     
     @staticmethod
     def get_by_id(user_id: int) -> Optional[Dict]:
@@ -62,12 +73,31 @@ class UserRepository:
         
         with get_db_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute("""
-                INSERT INTO users (email, full_name, google_id, is_active, created_at, updated_at)
-                VALUES (%s, %s, %s, %s, %s, %s)
-                RETURNING id
-            """, (email, full_name, google_id, True, created_at, updated_at))
-            result = cursor.fetchone()
+            try:
+                cursor.execute("""
+                    INSERT INTO users (email, full_name, google_id, is_active, created_at, updated_at)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                    RETURNING id
+                """, (email, full_name, google_id, True, created_at, updated_at))
+                result = cursor.fetchone()
+            except Exception as e:
+                # Backward compatibility: some schemas still require username.
+                try:
+                    import psycopg2
+                except Exception:
+                    raise
+
+                if isinstance(e, psycopg2.errors.NotNullViolation) and "username" in str(e):
+                    conn.rollback()
+                    username = UserRepository._derive_username_from_email(email)
+                    cursor.execute("""
+                        INSERT INTO users (username, email, full_name, google_id, is_active, created_at, updated_at)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s)
+                        RETURNING id
+                    """, (username, email, full_name, google_id, True, created_at, updated_at))
+                    result = cursor.fetchone()
+                else:
+                    raise
             user_id = result['id'] if isinstance(result, dict) else result[0]
             conn.commit()
         

@@ -7,7 +7,7 @@ echo "=========================================="
 gcloud sql connect adk-multi-agents-db \
   --database=adk_agents_db \
   --user=postgres \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet <<'EOF'
 \x
 SELECT username, email, is_active, created_at, LEFT(hashed_password, 30) as pwd_hash_prefix 

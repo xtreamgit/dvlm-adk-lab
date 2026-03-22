@@ -11,7 +11,7 @@ echo "================================================================"
 gcloud sql connect adk-multi-agents-db \
   --user=adk_app_user \
   --database=adk_agents_db \
-  --project=adk-rag-ma \
+  --project=dvlm-adk-lab \
   --quiet <<'EOF'
 -- Add missing columns
 ALTER TABLE user_sessions ADD COLUMN IF NOT EXISTS message_count INTEGER DEFAULT 0;

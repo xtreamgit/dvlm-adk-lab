@@ -18,15 +18,16 @@ from google.api_core import exceptions as google_exceptions
 from rag_agent.config import PROJECT_ID, LOCATION, DEFAULT_DISTANCE_THRESHOLD, DEFAULT_TOP_K
 from .utils import check_corpus_exists, get_corpus_resource_name, check_user_corpus_access
 
-try:
-    import google.auth
-    credentials, _ = google.auth.default()
-    vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
-    print(f"DEBUG: Initialized vertexai in rag_multi_query with project={PROJECT_ID}, location={LOCATION}")
-except Exception as e:
-    print(f"DEBUG: Failed to initialize vertexai in rag_multi_query: {e}")
-    import traceback
-    print(f"DEBUG: Traceback: {traceback.format_exc()}")
+if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() == "true":
+    try:
+        import google.auth
+        credentials, _ = google.auth.default()
+        vertexai.init(project=PROJECT_ID, location=LOCATION, credentials=credentials)
+        print(f"DEBUG: Initialized vertexai in rag_multi_query with project={PROJECT_ID}, location={LOCATION}")
+    except Exception as e:
+        print(f"DEBUG: Failed to initialize vertexai in rag_multi_query: {e}")
+        import traceback
+        print(f"DEBUG: Traceback: {traceback.format_exc()}")
 
 
 def _query_single_corpus(
@@ -174,6 +175,17 @@ def rag_multi_query(
     
     if top_k is None:
         top_k = DEFAULT_TOP_K
+
+    if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() != "true":
+        return {
+            "status": "warning",
+            "message": "Vertex corpus validation is disabled; no Vertex-backed retrieval performed.",
+            "query": query,
+            "corpora_queried": corpus_names,
+            "results": [],
+            "results_count": 0,
+            "results_by_corpus": {name: 0 for name in corpus_names},
+        }
     
     try:
         logging.info(

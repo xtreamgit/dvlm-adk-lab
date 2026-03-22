@@ -13,13 +13,21 @@ fi
 
 # Start database
 cd "$(dirname "$0")/.."
-docker-compose -f docker-compose.dev.yml up -d
+
+# Prefer Docker Compose v2 (docker compose). Fall back to legacy docker-compose.
+if command -v docker-compose > /dev/null 2>&1; then
+    COMPOSE_CMD="docker-compose"
+else
+    COMPOSE_CMD="docker compose"
+fi
+
+$COMPOSE_CMD -f docker-compose.dev.yml up -d
 
 echo "⏳ Waiting for PostgreSQL to be ready..."
 sleep 5
 
 # Check if database is healthy
-if docker-compose -f docker-compose.dev.yml ps | grep -q "healthy"; then
+if $COMPOSE_CMD -f docker-compose.dev.yml ps | grep -q "healthy"; then
     echo "✅ PostgreSQL is ready!"
     echo ""
     echo "📊 Database Info:"
@@ -38,5 +46,5 @@ if docker-compose -f docker-compose.dev.yml ps | grep -q "healthy"; then
     echo "   3. Start backend: uvicorn src.api.server:app --reload --port 8000"
 else
     echo "⚠️  PostgreSQL is starting... Check status with:"
-    echo "   docker-compose -f docker-compose.dev.yml ps"
+    echo "   $COMPOSE_CMD -f docker-compose.dev.yml ps"
 fi

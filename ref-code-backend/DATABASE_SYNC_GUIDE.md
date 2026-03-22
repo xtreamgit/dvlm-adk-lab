@@ -40,7 +40,7 @@ docker-compose up -d postgres
 brew install cloud-sql-proxy
 
 # Start proxy in a separate terminal
-cloud-sql-proxy adk-rag-ma:us-west1:adk-multi-agents-db \
+cloud-sql-proxy dvlm-adk-lab:us-west1:adk-multi-agents-db \
   --port 5432 \
   --credentials-file=/Users/hector/github.com/xtreamgit/adk-multi-agents/backend/backend-sa-key.json
 ```
@@ -67,7 +67,7 @@ export CLOUD_DB_PASSWORD=your_cloud_password  # Get from gcloud secrets
 
 To get cloud password:
 ```bash
-gcloud secrets versions access latest --secret=db-password --project=adk-rag-ma
+gcloud secrets versions access latest --secret=db-password --project=dvlm-adk-lab
 ```
 
 ---
@@ -128,7 +128,7 @@ docker-compose up -d postgres
 psql -h localhost -p 5433 -U adk_dev_user -d adk_agents_db_dev -f init_postgresql_schema.sql
 
 # 3. Start Cloud SQL Proxy (separate terminal)
-cloud-sql-proxy adk-rag-ma:us-west1:adk-multi-agents-db --port 5432
+cloud-sql-proxy dvlm-adk-lab:us-west1:adk-multi-agents-db --port 5432
 
 # 4. Sync data from cloud
 python sync_database_data.py --from-cloud
@@ -199,7 +199,7 @@ lsof -i :5432
 
 ```bash
 # For cloud database, get password from Secret Manager:
-gcloud secrets versions access latest --secret=db-password --project=adk-rag-ma
+gcloud secrets versions access latest --secret=db-password --project=dvlm-adk-lab
 
 # Export it:
 export CLOUD_DB_PASSWORD="the_password_here"

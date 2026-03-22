@@ -42,7 +42,7 @@ BACKEND_SERVICE_ID=1234567890123456789
 
 ```bash
 # Get project number from gcloud
-gcloud projects describe adk-rag-ma --format="value(projectNumber)"
+gcloud projects describe dvlm-adk-lab --format="value(projectNumber)"
 ```
 
 #### 2. Get BACKEND_SERVICE_ID
@@ -335,7 +335,7 @@ If it doesn't match, authentication will fail.
 **Solution:**
 ```bash
 gcloud run services update backend \
-  --set-env-vars PROJECT_NUMBER=$(gcloud projects describe adk-rag-ma --format="value(projectNumber)") \
+  --set-env-vars PROJECT_NUMBER=$(gcloud projects describe dvlm-adk-lab --format="value(projectNumber)") \
   --region us-west1
 ```
 

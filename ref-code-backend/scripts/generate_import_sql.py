@@ -147,7 +147,7 @@ def main():
     print(f"  gcloud sql connect adk-multi-agents-db \\")
     print(f"    --database=adk_agents_db \\")
     print(f"    --user=adk_app_user \\")
-    print(f"    --project=adk-rag-ma \\")
+    print(f"    --project=dvlm-adk-lab \\")
     print(f"    --quiet < {OUTPUT_FILE}")
     print("=" * 50)
 

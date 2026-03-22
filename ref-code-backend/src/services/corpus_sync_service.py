@@ -4,6 +4,7 @@ Keeps database in sync with Vertex AI as source of truth.
 """
 
 import logging
+import os
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 
@@ -47,6 +48,10 @@ class CorpusSyncService:
             'vertex_count': 0,
             'db_active_count': 0
         }
+
+        if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() != "true":
+            result['status'] = 'skipped'
+            return result
         
         try:
             # Import dependencies
@@ -277,6 +282,11 @@ class CorpusSyncService:
         logger.info("=" * 70)
         logger.info("Starting Vertex AI corpus synchronization on startup...")
         logger.info("=" * 70)
+
+        if os.getenv("VALIDATE_CORPORA_WITH_VERTEX", "true").lower() != "true":
+            logger.info("Vertex corpus sync skipped because VALIDATE_CORPORA_WITH_VERTEX=false")
+            logger.info("=" * 70)
+            return
         
         try:
             result = CorpusSyncService.sync_from_vertex(project_id, location)

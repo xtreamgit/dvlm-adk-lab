@@ -34,7 +34,7 @@ def sync_document_counts(db_host=None, db_port=None, db_name=None, db_user=None,
         import vertexai
         from vertexai import rag
         
-        project_id = os.getenv('PROJECT_ID', 'adk-rag-ma')
+        project_id = os.getenv('PROJECT_ID', 'dvlm-adk-lab')
         location = os.getenv('GOOGLE_CLOUD_LOCATION', 'us-west1')
         
         logger.info(f"Initializing Vertex AI: project={project_id}, location={location}")
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     if args.cloud:
         logger.info("Syncing to CLOUD database")
         logger.info("Make sure Cloud SQL Proxy is running on port 5434")
-        logger.info("  cloud-sql-proxy adk-rag-ma:us-west1:adk-multi-agents-db --port 5434")
+        logger.info("  cloud-sql-proxy dvlm-adk-lab:us-west1:adk-multi-agents-db --port 5434")
         logger.info("")
         
         # Cloud database defaults (via proxy)

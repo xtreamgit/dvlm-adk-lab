@@ -21,7 +21,7 @@ def setup_test_environment():
     sys.modules['google.adk'] = MagicMock()
     
     # Set required environment variables for testing
-    os.environ["PROJECT_ID"] = "adk-rag-ma"
+    os.environ["PROJECT_ID"] = "dvlm-adk-lab"
     os.environ["GOOGLE_CLOUD_LOCATION"] = "us-west1"
     os.environ["VERTEXAI_LOCATION"] = "us-west1"
     os.environ["ACCOUNT_ENV"] = "develom"
@@ -98,7 +98,7 @@ def test_enhanced_health_check_values():
     assert data["google_cloud_location"] == "us-west1"
     assert data["account_env"] == "develom"
     assert data["root_path"] == ""
-    assert data["project_id"] == "adk-rag-ma"
+    assert data["project_id"] == "dvlm-adk-lab"
     
     # Check timestamp format (ISO format)
     assert "T" in data["timestamp"]
